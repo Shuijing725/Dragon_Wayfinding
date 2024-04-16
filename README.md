@@ -20,6 +20,17 @@ Our results demonstrate that DRAGON is able to communicate with the user smoothl
 </p>
 
 ------
+## Code structure
+This repository is organized in five parts: 
+- `image_caption/` folder contains the code for object detector, which is used for environment description and baseline landmark recognition.
+- `NLU/` folder contains the code for natural language understanding module.
+- `semantic_map/` folder contains the code for CLIP.
+- `speech_to_text/` contains the code for speech-to-text transcription with OpenAI Whisper. 
+- `VQA/` contains code for visual question answering module. 
+
+In most folders, we also provide scripts to unit test each module with and without ROS. See testing files that end with "unit_test_ros.py" and "unit_test.py".
+
+------
 ## System overview
 ### Hardware
 - Host computer:
@@ -129,16 +140,16 @@ cd ~/catkin_ws
 catkin_make
 ```
 
-4. Create a conda environment for speech recognition with OpenAI Whisper
-```
-conda env create -f wayfindng.yml
-```
+3. Create a conda environment for speech recognition with OpenAI Whisper
+   ```
+   conda env create -f wayfindng.yml
+   ```
 
-5. Before proceeding to the next step, **don't active** `wayfinding_new` conda environment you created in Step 4.
+4. Before proceeding to the next step, **don't active** `wayfinding_new` conda environment you created in Step 4.
    - Everything else below needs to be installed in the SAME environment.
    - To install everything below, we **don't recommend conda environment** since it may have problems with ROS. Instead, we recommend creating a virtual environment or installing everything in root.
-6. (For NLU) Install rasa following [this link](https://rasa.com/docs/rasa/installation/installing-rasa-open-source/)
-7. (For CLIP) Install [CLIP](https://github.com/openai/CLIP) and its dependencies 
+5. (For NLU) Install rasa following [this link](https://rasa.com/docs/rasa/installation/installing-rasa-open-source/)
+6. (For CLIP) Install [CLIP](https://github.com/openai/CLIP) and its dependencies 
 ```
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 pip install ftfy regex tqdm
@@ -149,25 +160,18 @@ git checkout jongwook-patch-1
 pip install -e .
 pip install packaging==21.3
 ```
-8. (For baseline landmark recognition and environment description) Install Detic object detector following [this link](https://github.com/facebookresearch/Detic)
-9. (For VQA) Install ViLT following [this link](https://github.com/dandelin/ViLT?tab=readme-ov-file)
-10. If you want to use our pretrained models, download them from [here](https://drive.google.com/drive/folders/1vmfiVmH2krR42z5066ScQy2LA5gTibLF?usp=sharing), create a folder named `pretrained_models/` in root, and place all models in the folder. 
-11. Connect the robot and host computer to the same WiFi network. In `tb2.bash`, change `ROS_MASTER` to the IP address of the robot, change `ROS_IP` to the IP address of the host computer.
-## Overview
-This repository is organized in five parts: 
-- `image_caption/` folder contains the code for object detector, which is used for environment description and baseline landmark recognition.
-- `NLU/` folder contains the code for natural language understanding module.
-- `semantic_map/` folder contains the code for CLIP.
-- `speech_to_text/` contains the code for speech-to-text transcription with OpenAI Whisper. 
-- `VQA/` contains code for visual question answering module. 
+7. (For baseline landmark recognition and environment description) Install Detic object detector following [this link](https://github.com/facebookresearch/Detic)
+8. (For VQA) Install ViLT following [this link](https://github.com/dandelin/ViLT?tab=readme-ov-file)
+9. If you want to use our pretrained models, download them from [here](https://drive.google.com/drive/folders/1vmfiVmH2krR42z5066ScQy2LA5gTibLF?usp=sharing), create a folder named `pretrained_models/` in root, and place all models in the folder. 
+10. Connect the robot and host computer to the same WiFi network. In `tb2.bash`, change `ROS_MASTER` to the IP address of the robot, change `ROS_IP` to the IP address of the host computer.
 
-In most folders, we also provide scripts to unit test each module with and without ROS. See testing files that end with "unit_test_ros.py" and "unit_test.py".
 
 ------
 
 ## Run the code
 ### Training and Preparation
-1. Create a map of the real environment using SLAM. For reference, the map used in our paper are in [`semantic_maps/metric_maps`](https://github.com/Shuijing725/dragon_wayfindng/tree/main/semantic_map/metric_maps).    
+1. Create a map of the real environment using SLAM. For reference, the map used in our paper are in [`semantic_maps/metric_maps`](https://github.com/Shuijing725/dragon_wayfindng/tree/main/semantic_map/metric_maps).   
+
    a. **[Turtlebot]** Launch the mobile base:
       ```
       source catkin_ws/devel/setup.bash
@@ -202,7 +206,7 @@ In most folders, we also provide scripts to unit test each module with and witho
       ```
       In your home directory, you will see two files: `map.yaml` and `map.pgm`.   
       
-2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/dragon_wayfindng/semantic_map/landmark_library).   
+2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/dragon_wayfindng/semantic_map/landmark_library).     
    
    a. **[Turtlebot]** Launch the mobile base (see Step 1a)
 
@@ -233,66 +237,66 @@ In most folders, we also provide scripts to unit test each module with and witho
       - Press "Ctrl+C" to exit the code when you are done.
    
 3. (Optional) If the performance of pretrained CLIP model is not satisfactory, you can collect an image dataset with ground truth landmark labels in step 2, and run [`semantic_map/clip_finetune.py`](https://github.com/Shuijing725/dragon_wayfindng/blob/main/semantic_map/clip_finetune.py) to finetune CLIP.
-   - Our finetuned CLIP model can be downloaded in Setup -> Host Computer -> Step 10.
+   - Our finetuned CLIP model can be downloaded in [Setup -> Host Computer](#host-computer) -> Step 9.
 4. (Optional) Modify the NLU training data and the set of all intents in [`NLU/data/nlu.yml`](https://github.com/Shuijing725/dragon_wayfindng/blob/main/NLU/data/nlu.yml), and train NLU:
    ```
    cd ~/dragon_wayfnding/NLU
    rasa train
    ```
-   If you want to use our pretrained NLU model, download it in Setup -> Host Computer -> Step 10.
+   If you want to use our pretrained NLU model, download it in [Setup -> Host Computer](#host-computer) -> Step 9.
 5. (Optional) If the performance of pretrained VQA model is not satisfactory, you can collect a dataset of (image, question, answer) triplets, and follow the intructions on [their Github](https://github.com/dandelin/ViLT/blob/master/TRAIN.md#finetune-on-vqav2).
 
 ### Testing
-1. Launch the sensors and navigation stack.
-   a. **[Turtlebot]** Launch the mobile base (see #run-the-code -> Step 1a)
 
-   b. **[Turtlebot]** Launch the LiDAR (see [Training and preparation](#training-and-preparation) -> Step 1b)
-     
-   c. **[Turtlebot]** Launch the camera 
-      ```
-      cd ~/catkin_ws 
-      source devel/setup.bash 
-      roslaunch realsense2_camera rs_camera.launch
-      ```
-   d. **[Turtlebot]** Connect the microphone to Turtlebot, and launch audio capture
-      ```
-      cd ~/catkin_ws 
-      source devel/setup.bash 
-      roslaunch audio_capture capture.launch
-      ```
-      To test whether the microphone is working, you can record and play a test audio:
-      ```
-      # say something to the mic
-      arecord -d 5 test-mic.wav 
-      # if you hear what you said, the mic is good to go
-      aplay test-mic.wav
-      ```
-   e. **[Turtlebot]** Launch text-to-speech
-      ```
-      cd ~/catkin_ws
-      source devel/setup.bash 
-      python3 src/ros_speak_caption.py
-      ```
-   f. **[Host computer]** Launch localization and navigation (see [Training and preparation](#training-and-preparation) -> Step 2c)
+a. **[Turtlebot]** Launch the mobile base (see [Run the code](#run-the-code) -> Step 1a)
 
-   g. **[Host computer]** Launch rviz and calibrate localization (see [Training and preparation](#training-and-preparation) -> Step 1d)  
+b. **[Turtlebot]** Launch the LiDAR (see [Training and preparation](#training-and-preparation) -> Step 1b)
+ 
+c. **[Turtlebot]** Launch the camera 
+   ```
+   cd ~/catkin_ws 
+   source devel/setup.bash 
+   roslaunch realsense2_camera rs_camera.launch
+   ```
+d. **[Turtlebot]** Connect the microphone to Turtlebot, and launch audio capture
+   ```
+   cd ~/catkin_ws 
+   source devel/setup.bash 
+   roslaunch audio_capture capture.launch
+   ```
+   To test whether the microphone is working, you can record and play a test audio:
+   ```
+   # say something to the mic
+   arecord -d 5 test-mic.wav 
+   # if you hear what you said, the mic is good to go
+   aplay test-mic.wav
+   ```
+e. **[Turtlebot]** Launch text-to-speech
+   ```
+   cd ~/catkin_ws
+   source devel/setup.bash 
+   python3 src/ros_speak_caption.py
+   ```
+f. **[Host computer]** Launch localization and navigation (see [Training and preparation](#training-and-preparation) -> Step 2c)
 
-   h. **[Host computer]** Launch speech-to-text
-      ```
-      conda activate wayfinding_new 
-      source tb2.bash 
-      source ~/catkin_ws/devel/setup.bash
-      cd ~/dragon_wayfinding/speech-to-text
-      python audio_script.py
-      ```
+g. **[Host computer]** Launch rviz and calibrate localization (see [Training and preparation](#training-and-preparation) -> Step 1d)  
 
-   i. **[Host computer]** Launch the main function
-      ```
-      source tb2.bash 
-      source ~/catkin_ws/devel/setup.bash
-      cd ~/dragon_wayfinding 
-      python main.py
-      ```
+h. **[Host computer]** Launch speech-to-text
+   ```
+   conda activate wayfinding_new 
+   source tb2.bash 
+   source ~/catkin_ws/devel/setup.bash
+   cd ~/dragon_wayfinding/speech-to-text
+   python audio_script.py
+   ```
+
+i. **[Host computer]** Launch the main function
+   ```
+   source tb2.bash 
+   source ~/catkin_ws/devel/setup.bash
+   cd ~/dragon_wayfinding 
+   python main.py
+   ```
    Now you can speak to the robot, and once it parses your command, it will start guiding and other functionalities!
 
 ------
