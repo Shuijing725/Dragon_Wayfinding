@@ -201,6 +201,7 @@ CATKIN_IGNORE
 *.zip
 *.png
 
+README_old.md
 pretrained_models/
 image_caption/models/
 image_caption_clipclap/pretrained_models/

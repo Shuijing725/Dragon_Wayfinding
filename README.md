@@ -1,9 +1,10 @@
 # Dragon_Wayfinding
 
-This repository contains the codes for our paper titled "DRAGON: A Dialogue-Based Robot for Assistive Navigation with Visual Language Grounding" in RA-L 2024. 
-For more details, please refer to the [project website](https://sites.google.com/view/dragon-wayfinding) and [arXiv preprint](https://arxiv.org/abs/2307.06924).    
+This repository contains the codes for our paper titled "DRAGON: A Dialogue-Based Robot for Assistive Navigation with Visual Language Grounding" in RA-L 2024.   
 
-For more experiment demonstrations, please refer to the [video playlist](https://www.youtube.com/playlist?list=PLL4IPhbfiY3YkITpyLjeroak_wBn151pn). For user study documents, please refer to [this link](https://drive.google.com/file/d/15KNR6C82mUrKSPMFRCnAJZ1C2NGX7dXJ/view).
+[Website](https://sites.google.com/view/dragon-wayfinding)  [Paper](https://ieeexplore.ieee.org/document/10423088) [arXiv](https://arxiv.org/abs/2307.06924) [Videos](https://www.youtube.com/playlist?list=PLL4IPhbfiY3YkITpyLjeroak_wBn151pn) [User study documents](https://drive.google.com/file/d/15KNR6C82mUrKSPMFRCnAJZ1C2NGX7dXJ/view)
+
+------
 
 ## Abstract
 Persons with visual impairments (PwVI) have difficulties understanding and navigating spaces around them.
@@ -18,11 +19,12 @@ Our results demonstrate that DRAGON is able to communicate with the user smoothl
 <img src="/figures/open_new.png" width="450" />
 </p>
 
+------
 ## System overview
 ### Hardware
 - Host computer:
   - CPU: Intel i7-9700 @ 3GHz
-  - GPU: Nvidia RTX 2080 (GPU and cuda are necessary for the host computer)
+  - GPU: Nvidia RTX 2080 **(GPU and cuda are necessary for the host computer)**
   - Memory: 32GB
 - Turtlebot2i:
   - On-board computer: Nvidia Jetson Xavier
@@ -44,6 +46,8 @@ The host computer and the turtlebot communicates through ROS by connecting to th
   - Python version: 3.8
   - Cuda version: cuda is not needed unless you're running everything on board (i.e. no host computer)
   - ROS version: Melodic
+
+------
 
 ## Setup
 
@@ -76,13 +80,17 @@ git clone https://github.com/Slamtec/rplidar_ros.git
 git clone https://github.com/ros-drivers/audio_common.git
 
 # text-to-speech script
-curl -o ros_speak_caption.py https://github.com/Shuijing725/dragon_wayfindng/text-to-speech/ros_speak_caption.py
+curl -o ros_speak_caption.py https://raw.githubusercontent.com/Shuijing725/dragon_wayfindng/main/text-to-speech/ros_speak_caption.py
 cd ~/catkin_ws
 catkin_make
 ```
 
 3. Install realsense-ros following [this link](https://jsk-docs.readthedocs.io/projects/jsk_recognition/en/latest/install_realsense_camera.html)
-4. Setup Google text-to-speech service with [this link](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line)
+4. Setup Google text-to-speech service with [this link](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line). Then, install the following
+   ```
+   pip3 install --user --upgrade google-cloud-texttospeech
+   pip install playsound pygobject
+   ```
 
 ### Host computer
 1. Create a catkin workspace
@@ -126,11 +134,11 @@ catkin_make
 conda env create -f wayfindng.yml
 ```
 
-5. Don't active `wayfinding_new` conda environment you created in Step 4. Create a new separate virtual environment to install the rest of packages below.
-   - Everything else below needs to be installed in the **SAME environment**.
+5. Before proceeding to the next step, **don't active** `wayfinding_new` conda environment you created in Step 4.
+   - Everything else below needs to be installed in the SAME environment.
    - To install everything below, we **don't recommend conda environment** since it may have problems with ROS. Instead, we recommend creating a virtual environment or installing everything in root.
 6. (For NLU) Install rasa following [this link](https://rasa.com/docs/rasa/installation/installing-rasa-open-source/)
-7. (For CLIP) Install CLIP and its dependencies
+7. (For CLIP) Install [CLIP](https://github.com/openai/CLIP) and its dependencies 
 ```
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 pip install ftfy regex tqdm
@@ -153,11 +161,13 @@ This repository is organized in five parts:
 - `speech_to_text/` contains the code for speech-to-text transcription with OpenAI Whisper. 
 - `VQA/` contains code for visual question answering module. 
 
-In most folders, we also provide scripts to unit test each module with and without ROS. See testing files that ends with "unit_test_ros.py" and "unit_test.py".
+In most folders, we also provide scripts to unit test each module with and without ROS. See testing files that end with "unit_test_ros.py" and "unit_test.py".
+
+------
 
 ## Run the code
 ### Training and Preparation
-1. Create a map of the real environment using SLAM. For reference, the map used in our paper are in [`semantic_maps/metric_maps`](https://github.com/Shuijing725/dragon_wayfindng/semantic_maps/metric_maps). 
+1. Create a map of the real environment using SLAM. For reference, the map used in our paper are in [`semantic_maps/metric_maps`](https://github.com/Shuijing725/dragon_wayfindng/tree/main/semantic_map/metric_maps).    
    a. **[Turtlebot]** Launch the mobile base:
       ```
       source catkin_ws/devel/setup.bash
@@ -192,7 +202,8 @@ In most folders, we also provide scripts to unit test each module with and witho
       ```
       In your home directory, you will see two files: `map.yaml` and `map.pgm`.   
       
-2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/dragon_wayfindng/semantic_map/landmark_library).
+2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/dragon_wayfindng/semantic_map/landmark_library).   
+   
    a. **[Turtlebot]** Launch the mobile base (see Step 1a)
 
    b. **[Turtlebot]** Launch the LiDAR (see Step 1b)
@@ -206,11 +217,11 @@ In most folders, we also provide scripts to unit test each module with and witho
      This step is ready if the terminal shows "odom received".
 
    d. **[Host computer]** Launch rviz (see Step 1d)  
-      To calibrate localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge. 
+      - To calibrate localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge. 
 
    e. **[Host computer]** Launch robot teleoperation (see Step 1e)
       
-   f. Run the (image, robot pose) collector code, 
+   f. Run the code to collect (image, robot pose) pairs, 
       ```
       source tb2.bash
       source ~/catkin_ws/devel/setup.bash
@@ -218,14 +229,14 @@ In most folders, we also provide scripts to unit test each module with and witho
       python collect_image_pose.py
       ```
    g. Teleoperate the robot to landmarks of interest, then press "1" on the keyboard to record the (image, robot pose in map frame) when the robot stops at the landmarks. 
-      - The data are saved in a folder named with the current date and time. 
-      - Press "Ctrl" + "C" to exit the code when you are done.
+      - The data is saved in a folder named with the current date and time. 
+      - Press "Ctrl+C" to exit the code when you are done.
    
-3. (Optional) If the performance of pretrained CLIP model is not satisfactory, you can collect an image dataset with ground truth landmark labels in step 2, and run `semantic_map/clip_finetune.py` to finetune CLIP.
+3. (Optional) If the performance of pretrained CLIP model is not satisfactory, you can collect an image dataset with ground truth landmark labels in step 2, and run [`semantic_map/clip_finetune.py`](https://github.com/Shuijing725/dragon_wayfindng/blob/main/semantic_map/clip_finetune.py) to finetune CLIP.
    - Our finetuned CLIP model can be downloaded in Setup -> Host Computer -> Step 10.
-4. (Optional) Modify the NLU training data and the set of all intents in `NLU/data/nlu.yml`, and train NLU:
+4. (Optional) Modify the NLU training data and the set of all intents in [`NLU/data/nlu.yml`](https://github.com/Shuijing725/dragon_wayfindng/blob/main/NLU/data/nlu.yml), and train NLU:
    ```
-   cd NLU
+   cd ~/dragon_wayfnding/NLU
    rasa train
    ```
    If you want to use our pretrained NLU model, download it in Setup -> Host Computer -> Step 10.
@@ -233,9 +244,9 @@ In most folders, we also provide scripts to unit test each module with and witho
 
 ### Testing
 1. Launch the sensors and navigation stack.
-   a. **[Turtlebot]** Launch the mobile base (see #training-and-preparation -> Step 1a)
+   a. **[Turtlebot]** Launch the mobile base (see #run-the-code -> Step 1a)
 
-   b. **[Turtlebot]** Launch the LiDAR (see #training-and-preparation -> Step 1b)
+   b. **[Turtlebot]** Launch the LiDAR (see [Training and preparation](#training-and-preparation) -> Step 1b)
      
    c. **[Turtlebot]** Launch the camera 
       ```
@@ -251,7 +262,9 @@ In most folders, we also provide scripts to unit test each module with and witho
       ```
       To test whether the microphone is working, you can record and play a test audio:
       ```
-      arecord -d 5 test-mic.wav
+      # say something to the mic
+      arecord -d 5 test-mic.wav 
+      # if you hear what you said, the mic is good to go
       aplay test-mic.wav
       ```
    e. **[Turtlebot]** Launch text-to-speech
@@ -260,9 +273,9 @@ In most folders, we also provide scripts to unit test each module with and witho
       source devel/setup.bash 
       python3 src/ros_speak_caption.py
       ```
-   f. **[Host computer]** Launch localization and navigation (see #training-and-preparation -> Step 2c)
+   f. **[Host computer]** Launch localization and navigation (see [Training and preparation](#training-and-preparation) -> Step 2c)
 
-   g. **[Host computer]** Launch rviz and calibrate localization (see #training-and-preparation -> Step 1d)  
+   g. **[Host computer]** Launch rviz and calibrate localization (see [Training and preparation](#training-and-preparation) -> Step 1d)  
 
    h. **[Host computer]** Launch speech-to-text
       ```
@@ -282,11 +295,13 @@ In most folders, we also provide scripts to unit test each module with and witho
       ```
    Now you can speak to the robot, and once it parses your command, it will start guiding and other functionalities!
 
+------
 ## Disclaimer
-1. We only tested our code in our system in #system-overview. The code may work on other hardware or software, but we do not have any guarantee.  
+1. We only tested our code in our system as specified in [System overview](#system-overview). The code may work on other hardware or software, but we do not have any guarantee.  
 
 2. Since there are lots of uncertainties in real-world experiments that may affect performance, we cannot guarantee that our result is reproducible in your case.
 
+------
 ## Citation
 If you find the code or the paper useful for your research, please cite the following papers:
 ```
@@ -301,10 +316,16 @@ If you find the code or the paper useful for your research, please cite the foll
 }
 ```
 
+------
 ## Credits
+Part of the code is adapted from the following repositories:
+- https://github.com/openai/CLIP
+- https://github.com/facebookresearch/Detic
+- https://github.com/dandelin/ViLT
+
 Other contributors:  
 [Aamir Hasan](https://github.com/aamzhas)  
 [Kaiwen Hong](https://www.linkedin.com/in/kaiwen-hong-524520141/en)   
 [Ruoxuan Wang](https://www.linkedin.com/in/runxuan-wang)  
-[Zachary Mizarachi](https://zachmizrachi.com/)
+[Zachary Mizarachi](https://zachmizrachi.com/)  
 [Peixin Chang](https://github.com/PeixinC)
