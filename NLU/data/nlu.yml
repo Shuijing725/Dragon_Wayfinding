@@ -1,0 +1,1321 @@
+version: "3.1"
+
+nlu:
+
+- intent: sleep
+  examples: |
+    - and sleep
+    - sleep, thank you
+    - You go to sleep now
+    - sleep
+    - go to sleep
+    - power down
+    - power off
+    - sleep for a while
+    - sleep for a bit
+    - let's sleep
+    - go to power-saving mode
+    - take a nap
+    - suspend
+    - ignore my words from now on
+    - hibernate
+    - power nap
+    - power-saving state
+
+- intent: pause
+  examples: |
+    - wait
+    - Wait a second
+    - wait for me
+    - let's take a break
+    - hold on a second
+    - pause for a moment
+    - stop for now
+    - let's pause here
+    - take a breather
+    - let's slow down for a bit
+    - put a pin in it
+    - let's pause and regroup
+    - hold your horses
+    - let's take a timeout
+    - let's pause and come back later
+    - stop what you're doing
+    - let's take a short intermission
+    - Let's take a break.
+    - Pause for a bit.
+    - Hold on a moment.
+    - Let's regroup.
+    - Let's take a breather.
+    - Let's halt temporarily.
+    - Let's take a recess.
+    - Let's reflect briefly.
+    - Take a timeout.
+    - Let's rest up.
+    - Let's come back later.
+    - Put it aside for now.
+    - Hold off a bit.
+    - Take a short break.
+    - Let's refocus.
+    - Take a hiatus.
+    - Take a breather.
+    - Put it on hold.
+    - Take a quick pause.
+    - Let's assess briefly.
+    - No, stop.
+    - Hey robot stop
+    - stop now
+    - stop, stop, stop
+    - stop for a while
+    - hold on
+    - hold on a sec
+
+
+- intent: resume
+  examples: |
+    - please continue
+    - let's continue
+    - pick up where we left off
+    - let's get back to it
+    - get back
+    - restart
+    - restart our journey
+    - carry on
+    - keep going
+    - keep moving
+    - keep walking
+    - don't stop now
+    - continue from here
+    - let's move forward
+    - back to business
+    - let's keep working
+    - continue what you were doing
+    - let's finish what we started
+    - let's resume our previous task
+    - Proceed with the task.
+    - proceed
+    - proceed with your plan
+    - Resume our progress.
+    - resume
+    - resume our plan
+    - Pick up where we left off.
+    - Keep going from here.
+    - Carry on with the plan.
+    - Get back to the task.
+    - Continue the journey.
+    - Pick up the thread.
+    - Keep moving forward.
+    - Back to business.
+    - Restart our efforts.
+    - Continue from this point.
+    - Don't lose momentum.
+    - Carry on the project.
+    - Carry on
+    - Proceed with the plan.
+    - Resume our previous task.
+    - Keep pushing forward.
+    - Continue from where you were.
+    - Go on
+    - Move on
+    - Go
+    - Move
+    - Move forward
+    - Resume the navigation
+    - Continue, go back
+    - continue
+    - continue what you're doing
+    - So let's start!
+
+- intent: accelerate
+  examples: |
+    - increase the travel rate
+    - faster
+    - go fast
+    - move faster
+    - I want to walk fast
+    - Please go more fast
+    - speed it up!
+    - speed up
+    - put the speed up
+    - can you speed up
+    - larger speed
+    - make your speed larger
+    - more speed
+    - go faster
+    - accelerate now
+    - step on it
+    - give it more gas
+    - hit the accelerator
+    - floor it
+    - increase your speed
+    - higher speed
+    - raise the speed
+    - increase the velocity
+    - velocity up
+    - pick up the pace
+    - move faster
+    - rev the engine
+    - let's go faster
+    - we need to accelerate
+    - Step on the gas.
+    - Rev up the engine.
+    - Increase the speed.
+    - Go faster now.
+    - Accelerate to the max.
+    - Give it more throttle.
+    - Push the pedal to the metal.
+    - Pick up the tempo.
+    - Quick, speed up!
+    - Hit the gas harder.
+    - Move at a faster clip.
+    - Raise the speed limit.
+    - Drive with more urgency.
+    - Floor the accelerator.
+    - Boost your velocity.
+    - Ramp up your acceleration.
+    - Race to the finish.
+    - Put the pedal to the metal.
+    - Burn rubber, go faster.
+    - Move into high gear.
+    - Can't speed up.
+    - Can it speed up?
+
+- intent: decelerate
+  examples: |
+    - velocity down
+    - speed down
+    - move slowly
+    - slower
+    - go slower
+    - go slow
+    - I want to walk slower
+    - please walk more slowly
+    - slow your pace
+    - more slowly
+    - slowly, please
+    - slower, slower
+    - decrease your speed
+    - slower down and reduce your speed
+    - I want to walk slowly
+    - I want a lower speed
+    - lower speed
+    - can you lower your speed
+    - Use a smaller speed
+    - decrease your travel rate
+    - slow down
+    - can you slow down please
+    - Hey could you slow down a bit
+    - Can you reduce your speed, please
+    - Could you decelerate a little bit now
+    - Hey hit the brakes
+    - Ease off the gas pedal a bit
+    - Take your foot off the accelerator would you
+    - Can you pump the brakes a bit
+    - Apply the brakes gently
+    - Hey, can you decrease the speed a bit
+    - Hey, could you gradually reduce your velocity
+    - Back off the throttle a bit, please
+    - Hey, start braking now
+    - Let's decelerate safely, okay
+    - We need to slow down a bit
+    - Slow it down.
+    - Decelerate now.
+    - Ease up on the gas.
+    - Brake gently.
+    - Lighten up on the pedal.
+    - Reduce speed.
+    - reduce the velocity
+    - Back off a bit.
+    - Take it down a notch.
+    - Moderate your velocity.
+    - Moderate your speed
+    - Soften your acceleration.
+    - Reduce your momentum.
+    - Pull back on the speed.
+    - Bring it down slowly.
+    - Decrease your pace.
+    - Diminish speed
+    - Loosen your speed.
+    - Let up on the gas.
+    - Decrease your velocity.
+    - Decrease the speed
+    - Ease off the accelerator.
+    - Reduce your RPMs.
+    - Hold your horses, slow down.
+    - I can't follow you
+    - I have trouble following your pace
+    -  Can you slow down?
+
+- intent: greet
+  examples: |
+    - Hello, robots.
+    - hey robot
+    - hello robot
+    - hello, hello
+    - Hello?
+    - hello, robot
+    - hi robot
+    - good morning robot
+    - morning
+    - good evening robot
+    - moin robot
+    - hey there
+    - good afternoon robot
+    - hello ruled b ut
+    - hello
+    - hi
+    - Can you hear me
+    - Can you hear me?
+    - hey there, how are you doing?
+    - good to see you again, robot
+    - hi, what's up?
+    - greetings, robot
+    - hello, nice to meet you
+    - hi there, how can I help you today?
+    - what's cracking, robot?
+    - yo, what's good?
+    - hiya, how's your day going?
+    - hello, how's life treating you?
+    - Hey there, stranger.
+    - G'day, robot.
+    - Salutations, my metal friend.
+    - Top of the morning to you, robot.
+    - Howdy, partner.
+    - Hola, robot.
+    - Good day, mate.
+    - Namaste, robot.
+    - Hello, sunshine.
+    - Aloha, robot.
+    - Well, hello there.
+    - Sup, robot?
+    - Hey, how's it going?
+    - Hey, what's happening?
+    - Good to see you, robot.
+    - Hey, stranger, long time no see.
+    - Hey, how have you been?
+    - What's up, my friend?
+    - Hey, hope you're doing well.
+    - Yo, what's the word?
+    - Hi, what's up?
+    - Hey. What's up?
+    - wake up
+    - wake up, robot
+    - please wake up
+    - Hey, can you hear me
+    - HEAR
+
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - Yes, I do.
+    - indeed
+    - of course
+    - that sounds good
+    - yeah
+    - right
+    - yep
+    - uh-huh
+    - correct
+    - that's correct
+    -  Oh, this is very quick.
+    - absolutely
+    - affirmative
+    - affirmed
+    - definitely
+    - for sure
+    - sure
+    - you bet
+    - without a doubt
+    - positively
+    - positive
+    - agreed
+    - I agree
+    - sure thing
+    - Yes, that's correct.
+    - Absolutely.
+    - That's right.
+    - I agree.
+    - You're spot on.
+    - Precisely.
+    - I concur.
+    - Indeed.
+    - Correctamundo.
+    - That's exactly what I was thinking.
+    - exactly
+    - yeah, exactly
+    - oh, yes
+    - emm, yes
+    - Roger that.
+    - Affirmative.
+    - You got it.
+    - No doubt about it.
+    - Right you are.
+    - Sounds good to me.
+    - sound good
+    - sound great
+    - I'm with you on that.
+    - You're absolutely right.
+    - you're right
+    - That's the ticket.
+    - Bingo, that's it.
+    - that's it
+    - bingo
+    - perfect
+    - great
+    - amazing
+    - wonderful
+    - Cool.
+    - Go for it.
+    - Okay. Okay.
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - negative
+    - false
+    - don't
+    - nay
+    - never
+    - never ever
+    - I don't think so
+    - don't like that
+    - don't do this
+    - no way
+    - not really
+    - I disagree
+    - that's not true
+    - Not true
+    - Not correct
+    - Incorrect
+    - Not right
+    - not at all
+    - I'm sorry, but no
+    - unfortunately, no
+    - sorry, no
+    - that doesn't work for me
+    - won't work
+    - no, that won't work
+    - no, you're wrong
+    - wrong!
+    - I can't say yes to that
+    - that's not what I want
+    - I'm afraid not
+    - I must decline
+    - declined
+    - Sorry, but that's not possible
+    - I can't agree with that
+    - I'm going to have to say no
+    - I say no
+    - I don't think that's a good idea
+    - I respectfully decline
+    - That's a negative
+    - No, negative
+    - That's simply not true
+    - I'm not convinced
+    - I'm not interested
+    - I don't like this
+    - I'm afraid I have to disagree
+    - Not in a million years
+    - No chance
+    - That's not happening
+    - That's out of the question
+    - I can't support that
+    - I'm not willing to do that
+    - I don't believe so
+    - I have to reject that idea
+    - Rejected
+    - I reject
+    - not good
+    - not very good
+    - that sounds like a bad plan
+    - that's bad
+    - bad
+    - Fucking no
+    - What no more
+    - Oh shit
+    - No! Stop!
+
+#
+#- intent: mood_great
+#  examples: |
+#    - perfect
+#    - great
+#    - amazing
+#    - feeling like a king
+#    - wonderful
+#    - I am feeling very good
+#    - I am great
+#    - I am amazing
+#    - I am going to save the world
+#    - super stoked
+#    - extremely good
+#    - so so perfect
+#    - so good
+#    - so perfect
+#    - fantastic
+#    - excellent
+#    - splendid
+#    - superb
+#    - marvelous
+#    - I'm on top of the world
+#    - I'm over the moon
+#    - I couldn't be better
+#    - I'm feeling awesome
+#    - I'm elated
+#    - I'm in a fantastic mood
+#    - I'm feeling fantastic
+#    - I'm feeling amazing
+#    - I'm feeling unstoppable
+#    - I'm feeling fantastic today
+#    - I'm feeling phenomenal
+#    - I'm feeling incredible
+#    - I'm feeling outstanding
+#    - I'm feeling magnificent
+#    - I'm feeling on cloud nine
+#
+#- intent: mood_unhappy
+#  examples: |
+#    - my day was horrible
+#    - I am sad
+#    - I don't feel very well
+#    - I am disappointed
+#    - super sad
+#    - I'm so sad
+#    - sad
+#    - very sad
+#    - unhappy
+#    - not good
+#    - not very good
+#    - extremly sad
+#    - so sad
+#    - so sad
+#    - feeling down
+#    - not happy
+#    - feeling blue
+#    - having a bad day
+#    - very disappointed
+#    - not great
+#    - not feeling well
+#    - really sad
+#    - not in the mood
+#    - feeling low
+#    - not good
+#    - pretty bummed
+#    - not happy at all
+#    - feeling gloomy
+#    - not feeling good
+#    - extremely unhappy
+#    - having a tough time
+#    - feeling upset
+#    - not enjoying this
+#    - feeling miserable
+
+#- intent: distance_to_goal
+#  examples: |
+#    - Distance to goal
+#    - What is the distance to goal
+#    - What is the distance to my goal
+#    - What is the remaining distance
+#    - How far is it my destination
+#    - How far is it to the goal
+#    - How far
+#    - How much farther to the goal
+#    - What's the distance left to travel
+#    - What's the remaining distance to cover
+#    - How long until we reach the goal
+#    - What's the distance we need to cover
+#    - What's the distance remaining to reach the goal
+#    - What's the distance remaining to achieve my objective
+#    - How much further to my destination
+#    - What's the distance left until we arrive
+#    - What's the remaining distance to the finish line
+#    - How far away is the goal
+#    - What's the total distance to reach the objective
+#    - How much ground do we have to cover to reach the goal
+#    - Distance left?
+#    - Remaining distance?
+#    - Distance to destination?
+#    - Goal distance?
+#    - How far to go?
+#    - How far left?
+#    - Goal distance?
+#    - Distance to end?
+#    - Remaining distance to goal?
+#    - How far to the target?
+#    - Distance remaining?
+#    - Remaining goal distance?
+#    - Goal distance left?
+#    - How far until goal?
+#    - Distance left to goal?
+#    - How much further to the goal?
+#    - Remaining distance to destination?
+#    - Distance to reach goal?
+#    - Remaining distance to end?
+
+
+- intent: describe_the_scene
+  examples: |
+    - Can you describe what you see
+    - What is there
+    - Describe the scene
+    - What do you see
+    - Describe the environment
+    - Describe my surrounding
+    - What's around you
+    - What's around us
+    - Tell me what you see
+    - What's going on here
+    - Paint a picture of your surroundings
+    - What's the setting
+    - Describe the view
+    - What's in your field of vision
+    - Can you describe your location
+    - Tell me about the scene
+    - What's happening around you
+    - Give me a description of your environment
+    - Describe what you're seeing
+    - What's the scenery like
+    - Can you tell me what's going on
+    - What's the atmosphere like
+    - What's the ambiance
+    - Describe the background
+    - Describe the foreground
+    - What's the mood
+    - Tell me about your surroundings
+    - What does the setting look like
+    - What's in your view
+    - Give me a rundown of your surroundings
+    - What's the landscape like
+    - Describe the terrain
+    - What's the weather like
+    - What's the lighting like
+    - What's the color scheme
+    - What's the vibe
+    - Describe the sounds around you
+    - What's the temperature like
+    - What is in front of you?
+    - Can you tell me that's around us?
+    - Where are we?
+    - What are we looking at?
+    - What're you looking at, robot?
+    - What's around us?
+    - Describe.
+    - and describe
+    - the environment.
+    - of the scene.
+    - What is in front of me?
+    - Tell me what's going on in front of you
+    - OK, what is in the kitchen?
+    - Can't describe the environment?
+
+
+- intent: say_goal_object
+  examples: |
+    - and [exit]{"entity": "object"}.
+    - Can you take me to an [exit]{"entity": "object"}
+    - Eve the building. A [door]{"entity": "object"}.
+    - A [door]{"entity": "object"}.
+    - Can you go to the [door]{"entity": "object"}?
+    - A [glass]{"entity": "adjective"} [door]{"entity": "object"}
+    - To the [exit]{"entity": "object"} [door]{"entity": "object"}
+    - Last [Door]{"entity": "object"}
+    - Go to a clear [door]{"entity": "object"} 
+    - Take me to an automatic [door]{"entity": "object"} 
+    - to the [door]{"entity": "object"}.
+    - A [sofa]{"entity": "object", "role": "target"} near a [soap]{"entity": "object"} [dispenser]{"entity": "object", "role": "reference"}
+    - Let's go to [so far]{"value":"sofa", "entity": "object", "role": "target"} on the left of another [sofa]{"entity": "object", "role": "reference"}
+    - [so fair]{"value":"sofa", "entity": "object"}
+    - [so fast]{"value":"sofa", "entity": "object"}
+    -  with [SOFA]{"value":"sofa","entity": "object"} with [SOFA]{"value":"sofa","entity": "object"}
+    - A [sofa]{"entity": "object"} next to a [soap]{"entity": "object"} [dispenser]{"entity": "object"}
+    - a [sofa]{"entity": "object", "role": "target"} next to a [temperature controller]{"value":"thermostat", "entity": "object", "role": "reference"}
+    - [so fine]{"value":"sofa","entity": "object"}
+    - Can you bring me to the [sofa]{"entity": "object"}?
+    - Can it take me to [Sulfa]{"value":"sofa","entity": "object"}?
+    - into a [sulfur]{"value":"sofa","entity": "object"} can you take me to a [solar]{"value":"sofa","entity": "object"}
+    - [Sulfur]{"value":"sofa","entity": "object"}. [Sulfur]{"value":"sofa","entity": "object"}. 
+    - Can you guide me to [solve it]{"value":"sofa","entity": "object"}?
+    - I want to go to [software]{"value":"sofa","entity": "object"}.
+    - [So far]{"value":"sofa","entity": "object"}, [so far]{"value":"sofa","entity": "object"}.
+    - Guide me to a [chair]{"entity": "object", "role": "target"} next to a [sink]{"entity": "object", "role": "reference"} in the [dining room]{"entity": "kitchen"}
+    - Some [cheers]{"value":"chair","entity": "object"} 
+    - A [sink]{"entity": "object"} with some [soaks]{"value": "soap", "entity": "object"}
+    - Guide me to a [think]{"value":"sink","entity": "object"} at the [dining place]{"entity": "kitchen"}
+    - Go to a [sync]{"value":"sink","entity": "object"}.
+    - Can you take me to a [think]{"value":"sink","entity": "object"}?
+    -  the [sink]{"entity": "object"}.
+    - A water [sink]{"entity": "object"}
+    -  of what her [sink]{"entity": "object"}.
+    - Take me to a [table]{"entity": "object"} in the [kitchen]{"entity": "kitchen"}.
+    - I wanna go to a [table]{"entity": "object"} and [chairs]{"entity": "object"}
+    - A [table]{"entity": "object", "role": "target"} and some [chairs]{"entity": "object", "role": "target"} in front of [a coca cola machine]{"value": "vending machine", "entity": "object", "role": "reference"}.
+    - A paper towel [dispenser]{"entity": "object"}, a [sink]{"entity": "object"}, and some [soaps]{"entity": "object"} and [dinning utensils]{"value": "bowl", "entity": "object"}.
+    - A [table]{"entity": "object", "role": "target"} and some [chairs]{"entity": "object", "role": "target"} in front of a [microwave oven]{"entity": "object", "role": "reference"} and a [paper towel dispenser]{"value":"dispenser", "entity": "object", "role": "reference"}.
+    - I want to go to a [TV]{"value":"television set","entity": "object"} that is turned off.
+    - Would you take me to a [television]{"value":"television set","entity": "object"}, please?
+    - Take me to a [TV]{"value":"television set","entity": "object", "role": "target"} between two [desks]{"entity": "object", "role": "reference"}
+    - Can you bring me to the [television]{"value":"television set","entity": "object"}?
+    - Move to a [kitchen]{"entity": "kitchen"} with a [table]{"entity": "object"} and some [chairs]{"entity": "object"}.
+    - Bring me to a [television]{"value":"television set","entity": "object"}.
+    - A [hallway]{"entity": "object"} with glass [doors]{"entity": "object"} with tile floor.
+    - Can you take me to an empty [hallway]{"entity": "object"}?
+    - A corridor{"entity": "object"}
+    - I want to go to a [hallway]{"entity": "object"} instead
+    - Go to an empty [hallway]{"entity": "object"}
+    - Let's go to some water [kettles]{"entity": "object"} in the [dining area]{"entity": "kitchen"}.
+    - Can you take me to a [vending machine]{"entity": "object", "role": "target"} behind tables{"entity": "object", "role": "reference"} and chairs{"entity": "object", "role": "reference"}?
+    - The [vending machine]{"entity": "object"}
+    - A [vending washing]{"value": "vending machine", "entity": "object"}
+    - [venue machine]{"value": "vending machine", "entity": "object"} that sells soda.
+    - [vtubing machine]{"value": "vending machine", "entity": "object"}
+    - A [vending machine]{"entity": "object"}.
+    - [Vandy machine]{"value": "vending machine", "entity": "object"}
+    - Take me to a [machine]{"value": "vending machine", "entity": "object"}
+    - Now you take me to the [vending machine]{"entity": "object"}.
+    - me to a [vending machine]{"entity": "object"}
+    - Just lead me towards [vending machine]{"entity": "object"}
+    - Two [sofas]{"value":"sofa", "entity": "object"} next to a glass [door]{"entity": "object"}.
+    - Two [monitors]{"value":"computer monitor", "entity": "object", "role": "target"} and a [computer]{"value":"computer monitor", "entity": "object", "role": "target"} on a [desk]{"entity": "object", "role": "reference"}.
+    - A [computer]{"value":"computer monitor", "entity": "object"} [desk]{"entity": "object"}
+    - A [computer]{"value":"computer monitor", "entity": "object", "role": "target"} desk with [monitors]{"value":"computer monitor", "entity": "object", "role": "reference"}
+    - Can I go to the [desk]{"entity": "object"}?
+    - A [computer]{"value":"computer monitor", "entity": "object"}.
+    - [screen]{"value":"computer monitor", "entity": "object"}
+    - I want to sit down on a [kitchen]{"entity": "kitchen"} [chair]{"entity": "object"}
+    - Can you take me to a different [sofa]{"entity": "object"}?
+    - A [chair]{"entity": "object"}, a place to sit. Take me to the [sofa]{"entity": "object"}.
+    - Go to [wooden]{"entity": "adjective"} [chair]{"entity": "object"}
+    - The [wooden]{"entity": "adjective"} one
+    - Please take me to a [chair]{"entity": "object"} made of [wood]{"entity": "adjective"}
+    - A [fabric]{"entity": "adjective"} [chair]{"entity": "object"}, please
+    - One made of [fabric]{"entity": "adjective"}
+    - Can you go to a [fabric]{"entity": "adjective"} [sofa]
+    - Go do a [chair]{"entity": "object"} made of [leather]{"entity": "adjective"}
+    - For [dining]{"entity": "adjective"}
+    - I want to [eat]{"entity": "verb"} my food
+    - I want to go there for [relaxing]{"entity": "adjective"}
+    - To [relax]{"entity": "verb"} myself in the [entrance]{"entity": "object"}
+    - To sit down and [relax]{"entity": "verb"} a bit
+    - A [wooden]{"entity": "adjective"} [chair]{"entity": "object"} in the [cafeteria]{"entity": "kitchen"} for [dining]{"entity": "adjective"}
+    - A [gaming]{"entity": "adjective"} [chair]{"entity": "object"} that is made of [leather]{"entity": "adjective"}
+    - Please, take me to a [leather]{"entity": "adjective"} [chair]{"entity": "object"}
+    - I want to get my [work]{"entity": "verb"} done
+    - Can I choose the one with [fiber]{"entity": "adjective"}
+    - I want the [fabric]{"entity": "adjective"} one
+    - A table for [working]{"entity": "adjective"}, please
+    - A [round]{"entity": "adjective"} one in the [kitchen]{"entity": "kitchen"}
+    - Can you take me to a [chair]{"entity": "object"} made of [leather]{"entity": "adjective"}?
+    - The [leather]{"entity": "adjective"} [chair]{"entity": "object"}
+    - A [wooden]{"entity": "adjective"} one
+    - Can we go to A [computer]{"value":"computer monitor", "entity": "object"} [desk]{"entity": "object"}
+    - To a [dining]{"entity": "adjective"} [chair]{"entity": "object"}
+    - A [relaxing]{"entity": "adjective"} one.
+    - One for [working]{"entity": "adjective"}
+    - To [play]{"entity": "verb"} games
+    - For [gaming]{"entity": "adjective"}
+    - I need to [work]{"entity": "verb"} there
+    - To [work]{"entity": "verb"}
+    - To [eat]{"entity": "verb"}.
+    - A [round]{"entity": "adjective"} [table]{"entity": "object"}
+    - A [rectangular]{"entity": "adjective"} one
+    - For [dining]{"entity": "adjective"}
+    - I want to [work]{"entity": "verb"} at there
+    - I'm looking for a [TV]{"entity": "object"}
+    - You take me to a [chair]{"entity": "object"}.
+    - Two [television sets]{"entity": "object"}.
+    - [Chair]{"entity": "object"}. Can you take it?
+    - me to a [chair]{"entity": "object"}.
+    - A [sofa]{"entity": "object"} chair
+    - Go to a [sofa]{"entity": "object"} chair please
+    - A [faucet]{"entity": "object"}
+    - Go to a [faucet]{"entity": "object"}
+    - Can you bring me to a water [faucet]{"entity": "object"}
+    - I want to go to the [Coca Cola]{"entity": "object"}.
+    - I want to go to the [coke machine]{"entity": "object"}.
+    - I want to go to the [refrigerator]{"entity": "object"}.
+    - Take me to a [fridge]{"entity": "object"}, will you?
+    - A [refrigerator]{"entity": "object"}.
+    - to her [desk]{"entity": "object"}.
+    - Sit on the [sofa]{"entity": "object"}.
+    - I want to sit on the [sofa]{"entity": "object"}.
+
+    - I would like to go to the [entrance]{"entity": "object"}.
+    - Can you take me back to the [entrance]{"entity": "object"}?
+    - I want to go to the [exit]{"entity": "object"} closest to the lab and the office
+    - Take me to the place close to the [entrance]{"entity": "object"}. 
+    - Guide me to the [doorway]{"entity": "object"} to [exit]{"entity": "object"} this building.
+    - Take me to the [entrance]{"entity": "object"}
+    - Go to the [exit]{"entity": "object"}
+    - The [entrance]{"entity": "object"}.
+    - I want to sit on the [sofa]{"entity": "object"}.
+    - Let me choose the [desk]{"entity": "object"} by the [computer]{"entity": "object"}.
+    - [Four sets]{"value":"faucet","entity": "object"}
+    - Take me to [four sets]{"value":"faucet","entity": "object"}
+    - Go to a [four set]{"value":"faucet","entity": "object"}
+    - Take me to the [desk]{"entity": "object", "role": "target"} in front of the [computer]{"entity": "object", "role": "reference"}.
+    - Take me to the [computer monitor]{"entity": "object"}
+    - Take me to the [chair]{"entity": "object", "role": "target"} in front of the [computer]{"entity": "object", "role": "reference"}.
+    - Can you take me to your [desk]{"entity": "object", "role": "target"} with [computer]{"entity": "object", "role": "reference"}?
+    - I want to wash my hands at the [water pipe]{"entity": "object"}
+    - To a washing [basin]{"entity": "object"}.
+    - I wanna use the hand [basin]{"entity": "object"}?
+    - A water [basil]{"value": "basin", "entity": "object"}. That's it.
+    - To the [basic]{"value": "basin", "entity": "object"}. 
+    - I have to find a [base]{"value": "basin", "entity": "object"}. 
+    - Go to a water [tap]{"entity": "object"}
+    - I want to find some hand [soap]{"entity": "object"}
+    - I want to use a hand [soap]{"entity": "object"}
+    - Find me a [tap]{"entity": "object"}
+    - Can you take me to a wash [basin]{"entity": "object"}?
+    - May I wash my hands at a [pipe]{"entity": "object"}?
+    - Lead me to a [tab]{"value": "tap", "entity": "object"}
+    - Take me to a [Watertop]{"value": "water tap", "entity": "object"}
+    - Me to a [Water cap]{"value": "water tap", "entity": "object"}
+    - Would you guide me to a Water [basic]{"value": "basin", "entity": "object"}
+    - I wanna use some [Sope]{"value": "soap", "entity": "object"}
+    - Can we go to a bottle of [Sop]{"value": "soap", "entity": "object"}
+    - Take me to somewhere with hand [so]{"value": "soap", "entity": "object"}
+    - You lead me to some hand [sold]{"value": "soap", "entity": "object"} please
+    - Can you help me find a water [tab]{"value": "tap", "entity": "object"}
+    - Please to a water [top]{"value": "tap", "entity": "object"}
+    - Please to a water [cap]{"value": "tap", "entity": "object"}
+    - Can you find me some hand [sanitizer]{"entity": "object"}?
+    - [Sanitizers]{"entity": "object"}
+
+
+- intent: say_goal_location
+  examples: |
+    - Where is the [lounge]{"entity": "lounge"}?
+    - I would like to go to the [waiting area]{"entity": "lounge"}.
+    - Could you please take me to the [office]{"entity": "office"}?
+    - I need to go to the [lab]{"entity": "office"}
+    - Let’s go to the [laboratory]{"entity": "office"}
+    - Can you take me back to the [lounge]{"entity": "lounge"}?
+    - Where is the [sitting room]{"entity": "lounge"}?
+    - Take me to the [lab]{"entity": "office"}
+    - I need to work{"entity": "verb"} in [our lab]{"entity": "office"} so take me there
+    - I need to study{"entity": "verb"} in the [office]{"entity": "office"}
+    - Let’s take a lunch break in the [dining room]{"entity": "kitchen"}
+    - Escort me to the [lobby]{"entity": "lounge"}.
+    - Can you show me to the [kitchen]{"entity": "kitchen"} by the office?
+    - Just take me to the [dining area]{"entity": "kitchen"}
+    - Guide me to the [lunch area]{"entity": "kitchen"} please
+    - I want to eat{"entity": "verb"} my sandwich in the [dining hall]{"entity": "kitchen"}
+    - I should get to the [HCA lab]{"entity": "office"} now
+    - Find a way to [Katie's lab]{"entity": "office"} near the dining room
+    - Lead me to the [Human-Centered Automony lab]{"entity": "office"} beside the entrance
+    - How should I go to the [sitting area]{"entity": "lounge"} near the restroom?
+    - Find a path to the closest [doorway]{"entity": "lounge"}
+    - Take me to the [eating area]{"entity": "kitchen"} now
+    - Guide me to the [cafeteria]{"entity": "kitchen"} at the end of the corridor 
+    - please take me to [Professor Katie's lab]{"entity": "office"}
+    - I want to go to your [lab]{"entity": "office"}
+    - Move me to the [HCA lab]{"entity": "office"} please
+    - Can we go to the [your office]{"entity": "office"} next to the lab
+    - I want to study{"entity": "verb"} in the [lab]{"entity": "office"}
+    - Guide me to to the [dining place]{"entity": "kitchen"}
+    - How do we go to the from here to the [living room]{"entity": "lounge"} near the lab
+    - I want to go to the [waiting room]{"entity": "lounge"} closest to the lab and the office
+    - Take me to the nearest [the robotics lab]{"entity": "office"}
+    - The [student office]{"entity": "office"} please
+    - I’d really like to see the [your guys' office]{"entity": "office"}. 
+    - How do I get to the [your guys' lab]{"entity": "office"}? 
+    - Take me to the place close to the [sitting area]{"entity": "lounge"}. 
+    - I’d like to use the [lunch place]{"entity": "kitchen"} please. 
+    - Can I be taken to the [lunch room]{"entity": "kitchen"} by the study? 
+    - Take me to the [office room]{"entity": "office"} next to the office. 
+    - Please direct me to the [study]{"entity": "office"} close to the conference room. 
+    - Can I be directed to the [office]{"entity": "office"} near the restroom? 
+    - Let’s go to the [relaxing room]{"entity": "lounge"} near the lab.
+    - Guide me to the [room for relaxing]{"entity": "lounge"}.
+    - Please show me the way to the [lab of Katie's group]{"entity": "office"}!
+    - I want to eat{"entity": "verb"} my lunch in the [cafeteria]{"entity": "kitchen"}
+    - Can we go back?
+    - I would like to change my destination
+    - I want to change my change my goal
+    - Can you lead me to another place
+    - I want to change my previous plan
+    - Go to another place
+    - Go to somewhere else
+    - Can I go to somewhere else
+    - Can you take me to the the the the
+    - Can we go there?
+    - Go there
+    - Reroute me to another place
+    - Can we get a drink?
+    - I want to wash my hands
+    - Can I go somewhere to sit down?
+    - To the [kitchen]{"entity": "kitchen"}
+    - Go to the [kitchen]{"entity": "kitchen"}
+    - Take me to the [lobby]{"entity": "lounge"}
+    - Go to the [lobby area]{"entity": "lounge"}
+    - Take me to the [lounge]{"entity": "lounge"}
+    - Go to the [lounge]{"entity": "lounge"} place
+    - A [kitchen]{"entity": "kitchen"} and a dining area, please.
+
+
+- intent: say_goal_object+say_goal_location
+  examples: |
+    - Go to a clear [door]{"entity": "object"} in the [lounge]{"entity": "lounge"} area
+    - A glass [door]{"entity": "object"} in the [entrance]{"entity": "lounge"}
+    - Take me to an automatic [door]{"entity": "object"} in the [lounge area]{"entity": "lounge"}
+    - Can I be taken to a [sofa]{"entity": "object"} in the [entrance]{"entity": "lounge"} area?
+    - In the [lounge]{"entity": "lounge"}, can you find me a [sofa chair]{"entity": "object"}?
+    - To a [table]{"entity": "object"} and [chairs]{"entity": "object"} in the [lab]{"entity": "office"}
+    - Can you take me to a [television]{"value":"television set","entity": "object"} in the [lab]{"entity": "office"}?
+    - A [television]{"value":"television set","entity": "object"} in our [office]{"entity": "office"}.
+    - Go to the [hallway]{"entity": "object"} near our [office]{"entity": "office"}.
+    - A [leather]{"entity": "adjective"} [chair]{"entity": "object"} in the [office]{"entity": "office"}
+    - A [computer]{"value":"computer monitor", "entity": "object"} [desk]{"entity": "object"} in the [lab]{"entity": "office"}
+    - I wanna [work]{"entity": "verb"} in our [lab]{"entity": "office"}
+    - Take me to a [table]{"entity": "object"} in the [kitchen]{"entity": "kitchen"}.
+    - Guide me to a [chair]{"entity": "object", "role": "target"} next to a [sink]{"entity": "object", "role": "reference"} in the [dining room]{"entity": "kitchen"}
+    - a [think]{"value":"sink","entity": "object"} at the [dining place]{"entity": "kitchen"}
+    - A [kitchen]{"entity": "kitchen"} with a [table]{"entity": "object"} and a [chair]{"entity": "object"}.
+    - Lead me to some water [kettles]{"entity": "object"} in the [dining area]{"entity": "kitchen"}.
+    - I want to sit down on a [kitchen]{"entity": "kitchen"} [chair]{"entity": "object"}
+    - A [wooden]{"entity": "adjective"} [chair]{"entity": "object"} in the [cafeteria]{"entity": "kitchen"} for [dining]{"entity": "adjective"}
+    - A [round]{"entity": "adjective"} one in the [kitchen]{"entity": "kitchen"}
+    - To the [entrance]{"entity": "lounge"}. A [door]{"entity": "object"}.
+    - and all the take me to the [kitchen]{"entity": "kitchen"} [sink]{"entity": "object"}
+    - All right, please take me to the [kitchen]{"entity": "kitchen"} [sink]{"entity": "object"}
+    - Take me to the [kitchen]{"entity": "kitchen"} [faucet]{"entity": "object"}.
+    - Can you Take me to the [chair]{"entity": "object"} in the [living room]{"entity": "lounge"}?
+    - I want to watch the [television]{"value":"television set","entity": "object"} in the [dining place]{"entity": "kitchen"}.
+    - Can I wash my hands using the [sync]{"value": "sink", "entity": "object"} near the [kitchen]{"entity": "kitchen"}
+    - Can I use some hand [soaps]{"entity": "object"} in the [kitchen]{"entity": "kitchen"} place?
+    - Would you take me to a water [tab]{"value":"tap","entity": "object"} in the dining place
+
+
+- intent: say_goal_object+affirm
+  examples: |
+    - I want to go to the [door]{"entity": "object"}. Yes.
+    - Yes, take me to the [sink]{"entity": "object"}, please
+    - Correct, a [dining]{"entity": "adjective"} [chair]{"entity": "object"}.
+    - Yes, a [vending machine]{"entity": "object"}. Yes.
+    - Of course, I want a [sofa]{"entity": "object"}
+    - A [TV]{"value":"television set","entity": "object"}. Sure. 
+    - A [dining]{"entity": "adjective"} [table]{"entity": "object"} sounds good to me.
+    - Yep. A [computer]{"value":"computer monitor", "entity": "object"} [desk]{"entity": "object"}.
+    - Umm, yeah, to the exit [door]{"entity": "object"}
+    - Right, a [gaming]{"entity": "adjective"} [chair]{"entity": "object"}
+    - You're correct, a [round]{"entity": "adjective"} [table]{"entity": "object"}
+    - A [wooden]{"entity": "adjective"} [chair]{"entity": "object"} is correct, let's go.
+    - [Sofa]{"entity": "object"}. Yes.
+    - Correct, a [tape]{"value":"tap","entity": "object"}
+
+- intent: say_goal_object+deny
+  examples: |
+    - No, I want to go to a glass [door]{"entity": "object"} instead.
+    - Nope. Go to a [faucet]{"entity": "object"}.
+    - No, no, no. A [television]{"value":"television set","entity": "object"}.
+    - No, take me to a blue [sofa]{"entity": "object"}.
+    - No, a [so far]{"value":"sofa", "entity": "object"}.
+    - Not quite, a [vending machine]{"entity": "object"}.
+    - That's wrong, go to a [chair]{"entity": "object"}, made of [leather]{"entity": "adjective"}.
+    - Negative. I said [relaxing]{"entity": "adjective"} [chair]{"entity": "object"}.
+    - Don't go there, go to a water [sync]{"value":"sink", "entity": "object"} instead.
+    - Sorry, can you take me to an [office]{"entity": "office"} [desk]{"entity": "object"}
+    - Sorry that's wrong. I meant an exit [door]{"entity": "object"}
+    - No. Denied. A [table]{"entity": "object"} with a [computer]{"value":"computer monitor", "entity": "object"}
+    - Never ever. I wanna go to the [desk]{"entity": "object"}
+    - Not true, I wanna a [fridge]{"entity": "object"} 
+    -  Take me to the [exit]{"entity": "object"}. No.
+    - No, I mean a [sold]{"value":"soap","entity": "object"}. Hand [soap]{"entity": "object"}!
+
+- intent: say_goal_object+greet
+  examples: |
+    - Hello robot, can you take me to a [sofa]{"entity": "object"}?
+    - Hey, I want to go to the [entrance]{"entity": "object"}
+    - Hi robot, please take me to a [sync]{"value":"faucet", "entity": "object"}
+    - Good afternoon, can you guide me to your [door]{"entity": "object"}?
+    - Robot, hey, I want to find a [door]{"entity": "object"}
+    - Hi, to a [hallway]{"entity": "object"}
+    - Hey, can you hear me? Take me to a [faucet]{"entity": "object"}
+    - Hey there, Take me to the [computer monitor]{"entity": "object"}
+    - Morning, can you lead me to a [vending machine]{"entity": "object"}?
+    - Wake up, robot. I wanna go to a [table]{"entity": "object"}
+    - Hello. Robot. I would like to go to the [exit]{"entity": "object"}.
+    - Hi, hi, hi. An [sulfur]{"value":"sofa","entity": "object"}. Hello.
+    - Can you travel to [hallway]{"entity": "object"}. Hi.
+    - Hi, Robert. I want to use the [basil]{"value":"basin","entity": "object"}
+
+- intent: say_goal_location+greet
+  examples: |
+    - Hello robot, can you take me to the [kitchen]{"entity": "kitchen"}?
+    - Hello. Hello. I want to go to the [lab]{"entity": "office"}
+    - Hi robot,  I want to be in the [kitchen]{"entity": "kitchen"}
+    - Hey, please Go to the [lounge]{"entity": "lounge"}
+    - Hello. Robot. Can't you take me to the [lobby]{"entity": "lounge"}
+    - Hi. Go to the [lobby area]{"entity": "lounge"}
+    - Hey robot, Take me to the [lounge]{"entity": "lounge"}
+    - Good morning robot, I wish to rest  in the [lounge]{"entity": "lounge"} place
+    - Good afternoon, to a [kitchen]{"entity": "kitchen"}, please.
+    - Hello. Hi, take me a [lobby]{"entity": "lounge"}
+    - Can you Take me to the HCA [laboratory]{"entity": "office"}? Hi robot.
+    - Robot, go to the [lunch room]{"entity": "kitchen"}
+    - Can I be taken to your [office]{"entity": "office"}, robot?
+
+- intent: say_goal_object+say_goal_location+greet
+  examples: |
+    - Hello. Robot. can you guide me to the [sink]{"entity": "object"} of the [kitchen]{"entity": "kitchen"}?
+    - Hey, can you hear me? Take me to a [desk]{"entity": "object"} in the [office]{"entity": "office"}
+    - Hi there. Go to a clear [door]{"entity": "object"} in the [lounge]{"entity": "lounge"} 
+    - Hi robot, take me to the [table]{"value":"faucet", "entity": "object"}, which is in the [kitchen]{"entity": "kitchen"}
+    - Hello. I want to go to a [kitchen]{"entity": "kitchen"} [chair]{"entity": "object"}
+    - Hi, take me to a [sofa]{"entity": "object"} in the [lobby]{"entity": "lounge"}
+    - Hello? Hello, robot? A [vending machine]{"entity": "object"} in the [cafeteria]{"entity": "kitchen"}
+    - Hey there! Lead me to an [office]{"entity": "office"} [chair]{"entity": "object"}
+    - Hi. Robot. can you take me to a [lounge]{"entity": "lounge"} [chair]{"entity": "object"}?
+    - Greetings! A [computer]{"entity": "object"} near the [lab]{"entity": "office"}.
+    - Hey you. Can you Take me to the [TV]{"value":"television set","entity": "object"} in the [lab]{"entity": "office"}
+    - Can you Take me to the [chair]{"entity": "object"} in the [living room]{"entity": "lounge"} ? Hi robot.
+    - Hi. A [lounge]{"entity": "lounge"} [sofa]{"entity": "object"}
+    - Hey, a [dining]{"entity": "adjective"} [table]{"entity": "object"}. Hello.
+    - Can you Take me to the [sulfa]{"value":"sofa","entity": "object"} in HCA [laboratory]{"entity": "office"}? Hi robot.
+    - Hi! Could we go to the [desk]{"entity": "object"} in the [dining place]{"entity": "kitchen"}?
+    - Good evening, robot. I have to go to an exit [door]{"entity": "object"} at the end of the [resting room]{"entity": "lounge"} 
+    - Hi, Robert. Can I go to the water [basin]{"entity": "object"} in the the [kitchen]{"entity": "kitchen"}?
+
+- intent: ask_question
+  examples: |
+    - Is there a vending machine?
+    - Does the vending machine sell water?
+    - Does it sell water?
+    - Does the vending machine sell Coke?
+    - Does it sell Coke?
+    - Does the vending machine sell Sprite?
+    - Does it sell Sprite?
+    - Does it sell juice?
+    - Does it sell water or no?
+    - Does the vending machine sell snack?
+    - Does it sell snacks?
+    - Is there a fridge?
+    - Is a TV there?
+    - Is the TV turned on?
+    - Is the TV switched off?
+    - Is there a microwave?
+    - Is there a trash can?
+    - Is there a coffee maker?
+    - Is the computer turned on?
+    - Is the computer turned off?
+    - Has the computer been switched off?
+    - Is it switched on?
+    - Has the computer been powered on?
+    - Has it been powered off?
+    - What is the color of the wall?
+    - How many sofas are there? One? Two? Or three?
+    - Is there a thermostat?
+    - Are there any plants?
+    - What's the color of the sofa?
+    - Is there a table?
+    - Do you see a chair?
+    - Are there any chairs?
+    - Is there a chair to sit on?
+    - How many chairs are there?
+    - Any tables here?
+    - Are we at a table?
+    - How many tables?
+    - Is there a door?
+    - Is the door open?
+    - What is the door made of?
+    - Is the door automatic?
+    - Is there any person?
+    - Anyone out there?
+    - Anyone nearby?
+    - Are there any people?
+    - How many people are there?
+    - How many people are near me?
+    - What are people doing?
+    - What are they doing?
+    - What's he doing here?
+    - Is it dark outside?
+    - What is at the end of the hallway?
+    - What is on the sides of the hallway?
+    - What is the color of the floor?
+    - Is any screen turned on?
+    - How many monitors are there?
+    - Is there a computer?
+    - Are there any computers in front of us?
+    - Is there a 3D printer, or no?
+    - Is there any water kettles?
+    
+    - Is there a hand soap dispenser?
+    - How many liquid soaps are there?
+    - Can you see a hand soap dispenser?
+    - Are there any soaps?
+    - Can I wash my hands here?
+    - is there any soap to wash my hands?
+    
+    - Is there a paper towel dispenser?
+    - Are there any paper towels?
+    - Is there any paper towel left in the dispenser?
+    - Any paper left?
+    - Do you see any remaining papers?
+    - Can you find a drying rack?
+    - Are there any plates on the drying rack?
+    - Do we have a drying rack nearby?
+    - Any plates on the drying rack?	
+    - Are there any cabinets?
+    - Is there a sink or no?
+    - Is there a hand cart?
+
+    - Am I standing in front of the faucet?
+    - Anyone else around us?
+    - Is there anyone else around
+    - Is there anyone else in front of you?
+    - Are we facing the sofa?
+    - Are we looking at a chair?
+    - Is there anyone sitting on the sofa?
+    - Are we at the door?
+    - Are we standing in front of the vending machine?
+    - Is the door closed?
+    
+    - Am I standing in front of a chair?	
+    - Am I in front of any tables?	
+    - Is there a door around us?	
+    - Are we near an open door?	
+    - What is the material of the door?	
+    - Is the door an automatic one?	
+    - Any people nearby?	
+    - How many people can you see?	
+    - What are people doing?	
+    - Has the sun set?	
+    - Is it light outside?
+
+    - Can you tell me if there are any people?	
+    - How many of them?	
+    - What are they doing?	
+    - Can you tell me what is at the end of the hallway?	
+    - Anything on the sides of the hallway?
+
+    - Any persons?	
+    - What is he doing?	
+    - How many people can you see?	
+    - Are there any chairs in front of us?	
+    - Are all screens turned off?	
+    - How many monitors are in the view?	
+    - Any computers?	
+    - How many chairs are in front of me?	
+    - Are we at any tables?	
+    - Are we at a door?	
+    - Is the door closed?	
+    - Can you spot a 3D printer?	
+    - Is the TV turned off?
+
+    - Can you find any water kettle?	
+    - How many bottles are there?	
+    - Are we facing at a paper towel dispenser?	
+    - Is there any remaining paper in the dispenser?
+    - Are we facing any cabinets?	
+    - Are we at a sink?	
+    - Are we next to a kitchen sink?
+    - May I wash my hands here?
+    - Is there any faucet?
+    - Did we arrive at the faucet?
+    - Can you see a water tap here?
+    - Any water basin?
+    - Is anyone else using the sink?
+    - Am I in front of a hand cart?
+
+    - How many sofas do you find?	
+    - What’s the color of the sofa?	 
+    - What does the chair look like?
+    - Any person sitting at the sofa?
+    - Is there anyone sitting here?
+    - Have we arrived at a table?	
+    - Do you see a thermostat?	
+    - Anyone here?	
+    - How many people?	
+    - What is she doing?	
+    - What are they doing?
+    - Are there any potted plants?	
+    - Have we arrived at a door?	
+    - Are we looking at any cabinets?
+
+    - What’s the party size?	
+    - What are the folks doing here?	
+    - Did we arrive at a vending machine?	
+    - How many tables are you looking at?	
+    - What’s the number of chairs?	
+    - Am I at a fridge?	
+    - Is thre a water faucet?	
+    - Is there a television?	
+    - Is the television turned off?	
+    - Have we gotten to a microwave oven?	
+    - Have you find a trash bin?	
+    - Any cabinets next to me?	
+    - Have we made it to a door?
+    - Is there a place to make coffee?	
+    - Is there a handcart around?	
+    - Do you notice a sink there?
+    
+    - What does the vending machine sell?	
+    - Is there any Coke?	
+    - Any monster here?	
+    - Any Sprite available?	
+    - Any juice in the machine?	
+    - Can I buy a water?	
+    - Can I purchase a snack?	
+    - Are there any humans?	
+    - Any a hand cart in the camera?	
+    - Any faucet in your view?
+
+    - Is there a wall in front of you?
+    - Is there a door in front of you?
+    - What's on the computer desk?
+    - What's on the kitchen sink?
+    - Is the computer on or off?
+    - Is the computer switched on or off?
+    - Is the monitor turned on or off?
+
+- intent: unknown
+  examples: |
+    -  1.5% 1.5% 1.5% 1.5% 1.5% 1.5%
+    -  You
+    -  1.5G 2.5G 1.5G 1.5G 1.5G 1.5G 1.5G
+    -  Let's do it right. Let's do it right.
+    - 
+    - ............
+    - what the fuck so much someone goes tears
+    - Um, Um, um, uh, um, um, um,
+    - activate. An X.
+    - U grossity hg
+    - I knew it.
+    - The I not not
+    - Just like.
+    - But. But. But. But. But. But.
+    - is eating banjim.
+    - Oh, I don't know. I don't know what to do. I don't know what to do.
+    - Denise uhhhhh arguing what and
+    - what the fuck so much someone goes tears
+    - I am not Beau, very good woman I am even after sitting on the stage So I usually need
+    - Yeah, I thought I'm here. What you were here, what you were in English.
+    - Pen enthusiasm American
+    - No, I Twenty.
+    - a
+    - You have split out here.
+    - Now we'll raise this hole.
+    - I think I will follow up with Sana If you like this version of old-school favourite, I'll apply it in B Hafez
+    - you
+    - ...
+    - You know, we don't shoot our ways
+    - It's not so bad. It's not so bad. It's not so bad.
+    - I can't wait a while for this party
+    - I think I'm going to leave the link back. Well, maybe you won't have to go get the plan.
+    - No, no, she didn't touch the phone at the end.
+    - This is aweaa
+    - Silence.
+    - Egypt would stand in a potion that was stroke, and suppose to die.
+    -  And you are.
+    -  eSR for Fl
+    -  Passion love. When.
+    -  That's Psy dealers.
+    -  And I got over there.
+    -  When is the year Motor pick upimage
+    - I'll apply it in B Hafez
+    -  Well, good, good. You can.
+    -  Okay. Oh, it's saying something.
+    -  So, that does it.
+    - But, uh, Uh, Uh, Uh, Uh, Uh, Uh, Uh, Uh, Uh,
+    -  there.
+    - Pause. Pause. Pause. Pause. Pause.
+    -  A
+    - Zhuangzong hat
+    -  Oh, oh.
+    - Silence. Silence. Silence. Silence.
+    -  There is a question. I think we have to get started. There is a question. I think we have to get started. I think we have to get started.
+    -  What is the purpose of evidence that Application and fined
+    -  My tasks are there.
+    -  I think it's all.
+    -  ready. So I think like
+    -  uh here hero but
+    - and and and and and and and
+    -  Three.
+    -  You What?
+    - AMazz
+    - Give me good.
+    - We can.
+    - I
+    - Or.
+    - .\"\" diesel
+    - Click the subscribe button.
+    - Do you wish to get a job?
+    -  is is is is is
+    - One, two, three, and one, two, three.
+    - I'm worried. Do you wish to find a way to follow? 
+    -  cameras.
+    - Thanks for watching!
+    - Do you want to take that one?
+    - And reality is really good. And we talk about D because we think about Michael Andy because Michael soci has amazing backgrounds and
+    - Can you take me to a...
+    -  Another question?
+    - And I'm going to turn it over to Frank. Frank, second comment. That's our new channel. I hope this channel is so safe. Thank you.
+    - Welcome to our home. Thanks a lot. Thank you.
+    - for this performance. One, two, three, four.
+    - One, two, three, four, three, four, five, six, seven, eight.
+    - So I'm taking the disorder.
+    - What kind of a channel do you want?
+    - In the next refinery, you can move back and forth to be the year-to-year, Sidney premiere 2018 P It will be Colorado years ago, and meaning from Metz and 199thiggs.
+    - dataset on the internet or that if you can small channel where you have those targets to scan for, on the web, the URL dropout. I just want you to know that if you go into the
+    - I don't know where to land.
+    - Oh. to the next talk. What's your next talk? What's your next talk? What's your next talk?
+    - I must be Bruce
+    - Oh Do it. Do it, or is it... but
+    - You don't wanna do anything Oh
+    - He was looking for that space. There on top of that fence. Aww.
+    - It's hard. 
+    - There's FIRE
+    - richi messus
+    - ness
+    - You want to try it on?
+    - bound sp Well...
+    - I think that scale will be better
+    - I'll tell him I'm a pretty woman
+    - I'm I'm I'm I'm I'm
+    - Tear
+    - So you run out of hardware.
+    - quiet quiet
+    - Fasterigion's
+    - Sorry for the Sp Anna Pocket
+    - I brake. This is the end of the year.
+    - As I said in their show, this is
+    - I see. I want to come for a time to hear.
+    - I think play players can again recognize you!
+    - This is the first Preview
+    - Andan's clea Yes, he heliced
+    - Type in a A M C O i report
+    - Queda, Queda, Chica, Chica, hasa.
+    - Living without cost is a matter of spending time
+    - OK, listen to this one first time.
+    - murmuring more murmuring
+    - turments. chuckle
+    - ask government leaders and greetings of knowledge
+    - So, if you want to work out really quickly.
+    - So it said goal arrived.
+    - like for example, you want some information.
+    - One, two, one, two, one, two, one.
+    - I think you guys might.
+    - Okay, make sure you have the blindfold on.
+    - dye ku voyage rotation
+    - Chinese
+    - secondary research is a factor of executive purposes
+    - D
+    - Can it take...
+    - Can you take me
+    - Can you go to...
+    - Go to a
+    -  Take me to. 
+    - Take
+    - Take me
+    - Take me to a
+    - Go to
+    -  Go to it.
+    - Go to the right.
+    - I need to. 
+    - Can you take me to...
+    - Sair This Port SofaONT Sair Sair Sair GB GA Sair GSaton resistance Sair CNN Sair SC FL Hole SC software Sair V AR product
+    - Trauma closes
+    - to follow a normal.

@@ -1,0 +1,12 @@
+1. launch camera, change the subscriber topic in collect_image.py to match the camera you're using
+
+2. launch tb base
+
+1&2 in sim: roscore, gazebo
+
+3. launch keyboard teleop
+sim: 
+conda deactivate && source ~/tb3_catkin_ws/devel/setup.bash
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+4. conda deactivate && source ~/venv/ros_venv/bin/activate && source ~/tb3_catkin_ws/devel/setup.bash && cd ~/tb3_catkin_ws/src && python collect_image.py

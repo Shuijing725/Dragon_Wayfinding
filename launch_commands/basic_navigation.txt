@@ -1,0 +1,97 @@
+t1:
+# launch base
+ssh tb2xavier@192.168.1.51
+# password: turtlebot
+source catkin_ws/devel/setup.bash
+# Unplug the lidar wire!!!!!!   
+roslaunch turtlebot2i_bringup minimal.launch
+
+t2:
+# launch lidar
+ssh tb2xavier@192.168.1.51
+source catkin_ws/devel/setup.bash && sudo chmod 666 /dev/ttyUSB0 && sudo chmod 666 /dev/ttyUSB1 && sudo chmod 666 /dev/ttyUSB2 && roslaunch rplidar.launch
+# password: turtlebot
+
+#################### launch realsense D435 ####################
+ssh tb2xavier@192.168.1.51
+cd ~/catkin_ws && source devel/setup.bash && roslaunch realsense2_camera rs_camera.launch
+##################################################################
+
+t3:
+# launch navigation
+# map_hallway can be changed by another constructed map
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash && roslaunch turtlebot_navigation laser_amcl_demo.launch map_file:=$HOME/entrance_new.yaml
+
+t4:
+# launch rviz
+# calibrate the initial pose by "2d pose estimate"
+# for convenience, move the robot to a "familar" area to better localize itself
+# note to change the "fixed frame" to "map"
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash && roslaunch turbot_rviz nav.launch
+
+
+
+t5:
+# localize the robot using AMCL
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash
+cd ~/catkin_ws/src/2D_lidar_person_detection && python find_location.py 
+
+t6:
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash
+cd ~/catkin_ws/src/2D_lidar_person_detection && python bg_removal_map.py
+
+t7: # Not needed for crowdnav, needed for wayfinding
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash
+cd ~/catkin_ws/src/2D_lidar_person_detection && python set_footprint.py
+
+t7-1:
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash
+cd ~/catkin_ws/src/2D_lidar_person_detection && python find_people_globally.py
+
+
+t8:
+# launch people detector 
+# note to edit dr_spaam_ros/config/topics.yaml to make sure
+# it subscirbes the /person_pts topic 
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash && source ~/virtual_envs/tb2/bin/activate && roslaunch dr_spaam_ros dr_spaam_ros.launch
+
+Go back to t4, add /compare_map in rviz, change the turtlebot's pose so that the red & black scans are not too far from each other;
+Click "2D pose estimation" to correct the robot pose, 
+then click "2D Nav Goal" (can be anything), the robo
+t will move to align red & black scans
+
+t9: # Not needed
+# tune parameters
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash
+rosrun rqt_reconfigure rqt_reconfigure
+set "vel_trans" to 0.2
+
+
+In rviz,
+1. Change "Fixed Frame" to 'map'
+2. Add 'by topic --> compare map --> image --> ok'
+3. Click 2D Pose Estimate and have the error towards the location to be front.
+4. click 2D navigation Goal and move around the turtlebot to match the localization again
+5. Move to the initial position.
+
+
+# mapping
+
+rosrun map_server map_saver -f ~/map
+
+
+# teleoperation
+source ~/tb2.bash
+source catkin_ws/devel/setup.bash
+roslaunch turtlebot_teleop keyboard_teleop.launch
+
+# change the subscribed topic of dr_spaam:
+open ~/catkin_ws/src/2D_lidar_person_detection/dr_spaam_ros/config/topics.yaml
+change the subscriber topic between: /person_pts (background map removed), /scan (original lidar scan)
+
+# collect semantic landmarks
+# ATTENTION: need to launch amcl map (t3) and rviz (t4) before you run this!!!!!!!!!!!!!!!!!!!!
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash && cd ~/Desktop/var_wayfinding && python collect_image_pose.py
+
+# Use a language sentence to navigate robot to a semantic goal
+conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash && cd ~/catkin_ws/src/2D_lidar_person_detection && python set_goal_pose_clip.py

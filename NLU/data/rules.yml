@@ -1,0 +1,42 @@
+version: "3.1"
+
+rules:
+
+# - rule: greet
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - action: utter_service
+
+# - rule: set_goal
+#   steps:
+#   - intent: say_goal
+#   - action: to_ROS
+
+# - rule: request_goal_change
+#   steps:
+#   - intent: change_goal
+#   - action: utter_new_goal
+
+# - rule: ask_distance_to_goal
+#   steps:
+#   - intent: distance_to_goal
+#   - action: to_ROS
+
+# - rule: Check battary whenever the user sends a message with intent `battary_usage`
+#   steps:
+#   - intent: battary_usage
+#   - action: to_ROS
+
+# - rule: Describe the scene whenever the user sends a message with intent `describe_the_scene`
+#   steps:
+#   - intent: describe_the_scene
+#   - action: to_ROS
+
+
+
+# - rule: say_goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+

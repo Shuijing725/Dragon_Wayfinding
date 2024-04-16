@@ -1,0 +1,101 @@
+Login to the desktop computer:
+Eric Liang
+password: turtlebot2i
+
+When tb2 is connected to lifehome wifi, the ip address is 172.22.243.15
+
+0. Turn on turtlebot2: 
+	turn on 2 switches in level 2, then turn on the base switch
+	(To turn off: 2 switches then base switch)
+
+1. turn on the t265:
+   ssh tb2xavier@192.168.1.51
+   password: turtlebot
+
+   a. launch both t265 and d435:
+      roslaunch high_res.launch
+   b. launch t265 only:
+      roslaunch low_res.launch
+
+2. turn on the base:
+   
+   ssh tb2xavier@192.168.1.51
+
+   source catkin_ws/devel/setup.bash
+   
+   Unplug the lidar wire!!!!!!
+   
+   roslaunch turtlebot2i_bringup minimal.launch
+   
+   Change the USB port that the base will use:
+   roslaunch turtlebot2i_bringup minimal.launch serialport:=/dev/ttyUSB1
+
+
+3. run deepsort people tracker:
+
+   cd Documents
+
+   source tb2_remote.bash
+   
+   source cvbridge_ws/install/setup.bash
+
+   cd deepsort
+
+   python3 rs_deepsort_cn.py
+
+4. turn on the lidar:
+
+   ssh tb2xavier@192.168.1.51
+
+   source catkin_ws/devel/setup.bash && sudo chmod 666 /dev/ttyUSB0 && sudo chmod 666 /dev/ttyUSB1 && sudo chmod 666 /dev/ttyUSB2
+
+   roslaunch rplidar.launch (Modify the USB port to see which one: nano rplidar.launch)
+   (Guess: the port might be 0, 1, 2, 0, 1, 2...)
+   (topic name for the lidar: /scan)
+
+5. launch 2D lidar people detector: 
+
+   conda deactivate && source ~/tb2.bash && source ~/catkin_ws/devel/setup.bash (if in conda env)
+
+   source ~/virtual_envs/tb2/bin/activate
+
+   roslaunch dr_spaam_ros dr_spaam_ros.launch
+
+6. (Optional) visualize the detected people by 2D lidar detector:
+
+   conda deactivate (if in conda env)
+
+   source ~/tb2.bash
+
+   source ~/catkin_ws/devel/setup.bash
+   
+   rviz
+
+   Add stuff (change map to laser, select "By topic", then add LaserScan and Marker)
+
+7. run keyword extractor from audio:
+
+   (download audio_script.py and location_extraction_script.py, python -m pip install pydub, and SpeechRecognition if needed)
+
+   in tb2xavier, run roslaunch audio_capture capture.launch and roslaunch sound_play soundplay_node.py
+
+   source ~/tb2.bash
+
+   python audio_script.py (run speech to text, publish to /text topic) 
+ 
+   python location_extraction_script.py (run location keyword extraction, publish to /location topic)
+
+
+
+2. to close ternimals: Ctrl+C
+
+When bringing up the base, if the terminal says "no input data stream, is kobuki turned on?", use the correct order to turn on 3 switches & restart everything
+
+
+Teleoperation:
+0. source ~tb2.bash
+1. Download the teleop package from https://github.com/turtlebot/turtlebot and put it in a catkin worspace
+2. cd into the catkin worspace, run "source devel/setup.bash"
+3. for joystick: roslaunch turtlebot_teleop logitech.launch
+   for keyboard: roslaunch turtlebot_teleop keyboard_teleop.launch
+

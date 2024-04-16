@@ -1,0 +1,57 @@
+version: "3.1"
+
+intents:
+  - sleep
+  - pause
+  - resume
+  - accelerate
+  - decelerate
+  - greet
+  - affirm
+  - deny
+  - describe_the_scene
+  - say_goal_object
+  - say_goal_location
+  - ask_question
+  - unknown
+
+entities:
+  - office
+  - kitchen
+  - lounge
+  - adjective
+  - verb
+  - object
+
+
+responses:
+  utter_greet:
+  - text: "Hey!"
+
+  utter_service:
+  - text: "What can I do for you?"
+
+  utter_new_goal:
+  - text: "What is your new destination?"
+
+  utter_cheer_up:
+  - text: "No worries. I am with you!"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "That's Great!"
+
+  utter_got_it:
+  - text: "Got it!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+# actions:
+#   - to_ROS
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
