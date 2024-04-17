@@ -190,7 +190,7 @@ The host computer and the turtlebot communicates through ROS by connecting to th
       source ~/catkin_ws/devel/setup.bash
       roslaunch turtlebot_navigation laser_gmapping_demo.launch 
       ```
-   d. **[Host computer]** Launch rviz
+   d. **[Host computer]** Launch RViz
       ```
       source tb2.bash
       source ~/catkin_ws/devel/setup.bash
@@ -201,7 +201,7 @@ The host computer and the turtlebot communicates through ROS by connecting to th
       source tb2.bash 
       roslaunch turtlebot_teleop keyboard_teleop.launch
       ```
-   f. **[Host computer]** Teleoperate the robot around the environment until you are satisfied with the map in rviz, save the map by 
+   f. **[Host computer]** Teleoperate the robot around the environment until you are satisfied with the map in RViz, save the map by 
       ```
       rosrun map_server map_saver -f ~/map
       ```
@@ -221,9 +221,10 @@ The host computer and the turtlebot communicates through ROS by connecting to th
      ```
      This step is ready if the terminal shows "odom received".
 
-   d. **[Host computer]** Launch rviz (see Step 1d)  
-      - To correct the initial localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge. The video below demonstrates the calibration process:
-        [![Shuijing Liu on YouTube](http://img.youtube.com/vi/v1joU1Zc_b0/0.jpg)](http://www.youtube.com/watch?v=v1joU1Zc_b0 "Calibrate robot localization in AMCL in ROS navigaion stack")  
+   d. **[Host computer]** Launch RViz (see Step 1d)  
+      - To correct the initial localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge.  
+        The video below demonstrates the calibration process:  
+        [![Shuijing Liu on YouTube](http://img.youtube.com/vi/MdZ6RLviqx4/0.jpg)](http://www.youtube.com/watch?v=MdZ6RLviqx4 "Calibrate robot localization in AMCL in ROS navigaion stack")  
    e. **[Host computer]** Launch robot teleoperation (see Step 1e)
       
    f. Run the code to collect (image, robot pose) pairs, 
@@ -280,7 +281,7 @@ e. **[Turtlebot]** Launch text-to-speech
    ```
 f. **[Host computer]** Launch AMCL localization and navigation (see [Training and preparation](#training-and-preparation) -> Step 2c)
 
-g. **[Host computer]** Launch rviz and calibrate localization (see [Training and preparation](#training-and-preparation) -> Step 1d)  
+g. **[Host computer]** Launch RViz and calibrate localization (see [Training and preparation](#training-and-preparation) -> Step 1d)  
 
 h. **[Host computer]** Launch speech-to-text
    ```
