@@ -16,7 +16,7 @@ We conduct a user study with blindfolded participants in an everyday indoor envi
 Our results demonstrate that DRAGON is able to communicate with the user smoothly, provide a good guiding experience, and connect users with their surrounding environment in an intuitive manner.
 
 <p align="center">
-<img src="/figures/open_new.png" width="550" />
+<img src="/figures/open_new.png" width="600" />
 </p>
 
 ------
@@ -91,7 +91,7 @@ The host computer and the turtlebot communicates through ROS by connecting to th
    git clone https://github.com/ros-drivers/audio_common.git
 
    # text-to-speech script
-   curl -o ros_speak_caption.py https://raw.githubusercontent.com/Shuijing725/dragon_wayfindng/main/text-to-speech/ros_speak_caption.py
+   curl -o ros_speak_caption.py https://raw.githubusercontent.com/Shuijing725/Dragon_Wayfinding/main/text-to-speech/ros_speak_caption.py
    
    cd ~/catkin_ws
    catkin_make
@@ -213,7 +213,7 @@ The host computer and the turtlebot communicates through ROS by connecting to th
 
    b. **[Turtlebot]** Launch the LiDAR (see Step 1b)
 
-   c. **[Host computer]** Launch localization and navigation
+   c. **[Host computer]** Launch AMCL localization and navigation
      ```
      source tb2.bash
      source ~/catkin_ws/devel/setup.bash
@@ -222,15 +222,15 @@ The host computer and the turtlebot communicates through ROS by connecting to th
      This step is ready if the terminal shows "odom received".
 
    d. **[Host computer]** Launch rviz (see Step 1d)  
-      - To calibrate localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge. 
-
+      - To correct the initial localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge. The video below demonstrates the calibration process:
+        [![Shuijing Liu on YouTube](http://img.youtube.com/vi/v1joU1Zc_b0/0.jpg)](http://www.youtube.com/watch?v=v1joU1Zc_b0 "Calibrate robot localization in AMCL in ROS navigaion stack")  
    e. **[Host computer]** Launch robot teleoperation (see Step 1e)
       
    f. Run the code to collect (image, robot pose) pairs, 
       ```
       source tb2.bash
       source ~/catkin_ws/devel/setup.bash
-      cd ~/dragon_wayfindng/semantic_map
+      cd ~/Dragon_Wayfinding/semantic_map
       python collect_image_pose.py
       ```
    g. Teleoperate the robot to landmarks of interest, then press "1" on the keyboard to record the (image, robot pose in map frame) when the robot stops at the landmarks. 
@@ -278,7 +278,7 @@ e. **[Turtlebot]** Launch text-to-speech
    source devel/setup.bash 
    python3 src/ros_speak_caption.py
    ```
-f. **[Host computer]** Launch localization and navigation (see [Training and preparation](#training-and-preparation) -> Step 2c)
+f. **[Host computer]** Launch AMCL localization and navigation (see [Training and preparation](#training-and-preparation) -> Step 2c)
 
 g. **[Host computer]** Launch rviz and calibrate localization (see [Training and preparation](#training-and-preparation) -> Step 1d)  
 
@@ -287,7 +287,7 @@ h. **[Host computer]** Launch speech-to-text
    conda activate wayfinding_new 
    source tb2.bash 
    source ~/catkin_ws/devel/setup.bash
-   cd ~/dragon_wayfinding/speech-to-text
+   cd ~/Dragon_Wayfinding/speech-to-text
    python audio_script.py
    ```
 
@@ -295,7 +295,7 @@ i. **[Host computer]** Modify the arguments in line 460-474 in [main.py](https:/
    ```
    source tb2.bash 
    source ~/catkin_ws/devel/setup.bash
-   cd ~/dragon_wayfinding 
+   cd ~/Dragon_Wayfinding 
    python main.py
    ```
    Now you can speak to the robot, and once it parses your command, it will start guiding and other functionalities!
