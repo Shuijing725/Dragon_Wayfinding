@@ -209,9 +209,9 @@ The host computer and the turtlebot communicates through ROS by connecting to th
       
 2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/Dragon_Wayfinding/tree/main/semantic_map/landmark_library).     
    
-   a. **[Turtlebot]** Launch the mobile base (see Step 1a)
+   a. **[Turtlebot]** Launch the mobile base (see [Training and preparation](#training-and-preparation) -> Step 1a)
 
-   b. **[Turtlebot]** Launch the LiDAR (see Step 1b)
+   b. **[Turtlebot]** Launch the LiDAR (see [Training and preparation](#training-and-preparation) -> Step 1b)
 
    c. **[Host computer]** Launch AMCL localization and navigation
      ```
@@ -221,12 +221,12 @@ The host computer and the turtlebot communicates through ROS by connecting to th
      ```
      This step is ready if the terminal shows "odom received".
 
-   d. **[Host computer]** Launch RViz (see Step 1d)  
+   d. **[Host computer]** Launch RViz (see [Training and preparation](#training-and-preparation) -> Step 1d)  
       - To correct the initial localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge.  
         The video below demonstrates the calibration process:  
         [![Shuijing Liu on YouTube](http://img.youtube.com/vi/MdZ6RLviqx4/0.jpg)](http://www.youtube.com/watch?v=MdZ6RLviqx4 "Calibrate robot localization in AMCL in ROS navigaion stack")  
    
-   e. **[Host computer]** Launch robot teleoperation (see Step 1e)
+   e. **[Host computer]** Launch robot teleoperation (see [Training and preparation](#training-and-preparation) -> Step 1e)
       
    f. Run the code to collect (image, robot pose) pairs, 
       ```
