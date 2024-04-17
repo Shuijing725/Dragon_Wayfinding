@@ -336,3 +336,8 @@ Other contributors:
 - [Ruoxuan Wang](https://www.linkedin.com/in/runxuan-wang)  
 - [Zachary Mizarachi](https://zachmizrachi.com/)  
 - [Peixin Chang](https://github.com/PeixinC)
+
+------
+
+## Contact
+If you have any questions or find any bugs, please feel free to open an issue or a pull request.
