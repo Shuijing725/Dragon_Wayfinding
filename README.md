@@ -225,6 +225,7 @@ The host computer and the turtlebot communicates through ROS by connecting to th
       - To correct the initial localization, click "2D pose estimate" to correct the initial pose of robot, and then click "2D navigation" to navigate the robot around until the localization particles converge.  
         The video below demonstrates the calibration process:  
         [![Shuijing Liu on YouTube](http://img.youtube.com/vi/MdZ6RLviqx4/0.jpg)](http://www.youtube.com/watch?v=MdZ6RLviqx4 "Calibrate robot localization in AMCL in ROS navigaion stack")  
+   
    e. **[Host computer]** Launch robot teleoperation (see Step 1e)
       
    f. Run the code to collect (image, robot pose) pairs, 
