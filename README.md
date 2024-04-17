@@ -2,7 +2,7 @@
 
 This repository contains the codes for our paper titled "DRAGON: A Dialogue-Based Robot for Assistive Navigation with Visual Language Grounding" in RA-L 2024.   
 
-[Website](https://sites.google.com/view/dragon-wayfinding)  [Paper](https://ieeexplore.ieee.org/document/10423088) [arXiv](https://arxiv.org/abs/2307.06924) [Videos](https://www.youtube.com/playlist?list=PLL4IPhbfiY3YkITpyLjeroak_wBn151pn) [User study documents](https://drive.google.com/file/d/15KNR6C82mUrKSPMFRCnAJZ1C2NGX7dXJ/view)
+[[Website]](https://sites.google.com/view/dragon-wayfinding)  [[Paper]](https://ieeexplore.ieee.org/document/10423088) [[arXiv]](https://arxiv.org/abs/2307.06924) [[Videos]](https://www.youtube.com/playlist?list=PLL4IPhbfiY3YkITpyLjeroak_wBn151pn) [[User study documents]](https://drive.google.com/file/d/15KNR6C82mUrKSPMFRCnAJZ1C2NGX7dXJ/view)
 
 ------
 
@@ -16,7 +16,7 @@ We conduct a user study with blindfolded participants in an everyday indoor envi
 Our results demonstrate that DRAGON is able to communicate with the user smoothly, provide a good guiding experience, and connect users with their surrounding environment in an intuitive manner.
 
 <p align="center">
-<img src="/figures/open_new.png" width="450" />
+<img src="/figures/open_new.png" width="550" />
 </p>
 
 ------
@@ -64,37 +64,38 @@ The host computer and the turtlebot communicates through ROS by connecting to th
 
 ### Turtlebot
 1. Create a catkin workspace
-```
-mkdir ~/catkin_ws
-cd catkin_ws
-mkdir -p src
-catkin_make
-cd src
-```
+   ```
+   mkdir ~/catkin_ws
+   cd catkin_ws
+   mkdir -p src
+   catkin_make
+   cd src
+   ```
 
 2. Install ROS packages into your workspace
-```
-cd ~/catkin_ws/src
-# turtlebot2
-git clone https://github.com/turtlebot/turtlebot.git
-git clone https://github.com/turtlebot/turtlebot_msgs.git
-git clone https://github.com/turtlebot/turtlebot_apps.git
-git clone https://github.com/turtlebot/turtlebot_interactions.git
+   ```
+   cd ~/catkin_ws/src
+   # turtlebot2
+   git clone https://github.com/turtlebot/turtlebot.git
+   git clone https://github.com/turtlebot/turtlebot_msgs.git
+   git clone https://github.com/turtlebot/turtlebot_apps.git
+   git clone https://github.com/turtlebot/turtlebot_interactions.git
 
-# kobuki
-git clone https://github.com/yujinrobot/kobuki_msgs.git
+   # kobuki
+   git clone https://github.com/yujinrobot/kobuki_msgs.git
 
-# RP-Lidar
-git clone https://github.com/Slamtec/rplidar_ros.git
+   # RP-Lidar
+   git clone https://github.com/Slamtec/rplidar_ros.git
 
-# audio capture
-git clone https://github.com/ros-drivers/audio_common.git
+   # audio capture
+   git clone https://github.com/ros-drivers/audio_common.git
 
-# text-to-speech script
-curl -o ros_speak_caption.py https://raw.githubusercontent.com/Shuijing725/dragon_wayfindng/main/text-to-speech/ros_speak_caption.py
-cd ~/catkin_ws
-catkin_make
-```
+   # text-to-speech script
+   curl -o ros_speak_caption.py https://raw.githubusercontent.com/Shuijing725/dragon_wayfindng/main/text-to-speech/ros_speak_caption.py
+   
+   cd ~/catkin_ws
+   catkin_make
+   ```
 
 3. Install realsense-ros following [this link](https://jsk-docs.readthedocs.io/projects/jsk_recognition/en/latest/install_realsense_camera.html)
 4. Setup Google text-to-speech service with [this link](https://cloud.google.com/text-to-speech/docs/create-audio-text-command-line). Then, install the following
@@ -105,40 +106,40 @@ catkin_make
 
 ### Host computer
 1. Create a catkin workspace
-```
-mkdir ~/catkin_ws
-cd catkin_ws
-mkdir -p src
-catkin_make
-cd src
-```
+   ```
+   mkdir ~/catkin_ws
+   cd catkin_ws
+   mkdir -p src
+   catkin_make
+   cd src
+   ```
 
 2. Install ROS packages into your workspace
-```
-cd ~/catkin_ws/src
-# turtlebot2
-git clone https://github.com/turtlebot/turtlebot.git
-git clone https://github.com/turtlebot/turtlebot_msgs.git
-git clone https://github.com/turtlebot/turtlebot_apps.git
-git clone https://github.com/turtlebot/turtlebot_interactions.git
+   ```
+   cd ~/catkin_ws/src
+   # turtlebot2
+   git clone https://github.com/turtlebot/turtlebot.git
+   git clone https://github.com/turtlebot/turtlebot_msgs.git
+   git clone https://github.com/turtlebot/turtlebot_apps.git
+   git clone https://github.com/turtlebot/turtlebot_interactions.git
 
-# kobuki
-git clone https://github.com/yujinrobot/kobuki_msgs.git
+   # kobuki
+   git clone https://github.com/yujinrobot/kobuki_msgs.git
 
-# audio package
-git clone https://github.com/ros-drivers/audio_common.git
+   # audio package
+   git clone https://github.com/ros-drivers/audio_common.git
 
-# to use lidar for SLAM
-git clone https://github.com/surfertas/turtlebot2_lidar.git
-git clone https://github.com/SteveMacenski/slam_toolbox.git
-cd slam_toolbox
-git checkout noetic-devel
-rosdep install -q -y -r --from-paths src --ignore-src
-cd ..
+   # to use lidar for SLAM
+   git clone https://github.com/surfertas/turtlebot2_lidar.git
+   git clone https://github.com/SteveMacenski/slam_toolbox.git
+   cd slam_toolbox
+   git checkout noetic-devel
+   rosdep install -q -y -r --from-paths src --ignore-src
+   cd ..
 
-cd ~/catkin_ws
-catkin_make
-```
+   cd ~/catkin_ws
+   catkin_make
+   ```
 
 3. Create a conda environment for speech recognition with OpenAI Whisper
    ```
@@ -150,16 +151,16 @@ catkin_make
    - To install everything below, we **don't recommend conda environment** since it may have problems with ROS. Instead, we recommend creating a virtual environment or installing everything in root.
 5. (For NLU) Install rasa following [this link](https://rasa.com/docs/rasa/installation/installing-rasa-open-source/)
 6. (For CLIP) Install [CLIP](https://github.com/openai/CLIP) and its dependencies 
-```
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
-pip install ftfy regex tqdm
-git clone https://github.com/openai/CLIP.git
-cd CLIP
-# If you want to finetune CLIP model with your own dataset, you need to install this patch
-git checkout jongwook-patch-1
-pip install -e .
-pip install packaging==21.3
-```
+   ```
+   pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+   pip install ftfy regex tqdm
+   git clone https://github.com/openai/CLIP.git
+   cd CLIP
+   # If you want to finetune CLIP model with your own dataset, you need to install this patch
+   git checkout jongwook-patch-1
+   pip install -e .
+   pip install packaging==21.3
+   ```
 7. (For baseline landmark recognition and environment description) Install Detic object detector following [this link](https://github.com/facebookresearch/Detic)
 8. (For VQA) Install ViLT following [this link](https://github.com/dandelin/ViLT?tab=readme-ov-file)
 9. If you want to use our pretrained models, download them from [here](https://drive.google.com/drive/folders/1vmfiVmH2krR42z5066ScQy2LA5gTibLF?usp=sharing), create a folder named `pretrained_models/` in root, and place all models in the folder. 
@@ -170,7 +171,7 @@ pip install packaging==21.3
 
 ## Run the code
 ### Training and Preparation
-1. Create a map of the real environment using SLAM. For reference, the map used in our paper are in [`semantic_maps/metric_maps`](https://github.com/Shuijing725/dragon_wayfindng/tree/main/semantic_map/metric_maps).   
+1. Create a map of the real environment using SLAM. For reference, the map used in our paper are in [`semantic_maps/metric_maps`](https://github.com/Shuijing725/Dragon_Wayfinding/tree/main/semantic_map/metric_maps).   
 
    a. **[Turtlebot]** Launch the mobile base:
       ```
@@ -204,9 +205,9 @@ pip install packaging==21.3
       ```
       rosrun map_server map_saver -f ~/map
       ```
-      In your home directory, you will see two files: `map.yaml` and `map.pgm`.   
+      In your home directory, you will see two files: `map.yaml` and `map.pgm`. You can manually edit `map.pgm` to add/remove obstacles if the environment changes.      
       
-2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/dragon_wayfindng/semantic_map/landmark_library).     
+2. Collect landmark images and poses. For reference, the landmark data in our paper is provided in [`semantic_map/landmark_library`](https://github.com/Shuijing725/Dragon_Wayfinding/tree/main/semantic_map/landmark_library).     
    
    a. **[Turtlebot]** Launch the mobile base (see Step 1a)
 
@@ -236,9 +237,9 @@ pip install packaging==21.3
       - The data is saved in a folder named with the current date and time. 
       - Press "Ctrl+C" to exit the code when you are done.
    
-3. (Optional) If the performance of pretrained CLIP model is not satisfactory, you can collect an image dataset with ground truth landmark labels in step 2, and run [`semantic_map/clip_finetune.py`](https://github.com/Shuijing725/dragon_wayfindng/blob/main/semantic_map/clip_finetune.py) to finetune CLIP.
+3. (Optional) If the performance of pretrained CLIP model is not satisfactory, you can collect an image dataset with ground truth landmark labels in step 2, and run [`semantic_map/clip_finetune.py`](https://github.com/Shuijing725/Dragon_Wayfinding/blob/main/semantic_map/clip_finetune.py) to finetune CLIP.
    - Our finetuned CLIP model can be downloaded in [Setup -> Host Computer](#host-computer) -> Step 9.
-4. (Optional) Modify the NLU training data and the set of all intents in [`NLU/data/nlu.yml`](https://github.com/Shuijing725/dragon_wayfindng/blob/main/NLU/data/nlu.yml), and train NLU:
+4. (Optional) Modify the NLU training data and the set of all intents in [`NLU/data/nlu.yml`](https://github.com/Shuijing725/Dragon_Wayfinding/blob/main/NLU/data/nlu.yml), and train NLU:
    ```
    cd ~/dragon_wayfnding/NLU
    rasa train
@@ -290,7 +291,7 @@ h. **[Host computer]** Launch speech-to-text
    python audio_script.py
    ```
 
-i. **[Host computer]** Launch the main function
+i. **[Host computer]** Modify the arguments in line 460-474 in [main.py](https://github.com/Shuijing725/Dragon_Wayfinding/blob/main/main.py). Launch the main function
    ```
    source tb2.bash 
    source ~/catkin_ws/devel/setup.bash
@@ -328,8 +329,8 @@ Part of the code is adapted from the following repositories:
 - https://github.com/dandelin/ViLT
 
 Other contributors:  
-[Aamir Hasan](https://github.com/aamzhas)  
-[Kaiwen Hong](https://www.linkedin.com/in/kaiwen-hong-524520141/en)   
-[Ruoxuan Wang](https://www.linkedin.com/in/runxuan-wang)  
-[Zachary Mizarachi](https://zachmizrachi.com/)  
-[Peixin Chang](https://github.com/PeixinC)
+- [Aamir Hasan](https://github.com/aamzhas)  
+- [Kaiwen Hong](https://www.linkedin.com/in/kaiwen-hong-524520141/en)   
+- [Ruoxuan Wang](https://www.linkedin.com/in/runxuan-wang)  
+- [Zachary Mizarachi](https://zachmizrachi.com/)  
+- [Peixin Chang](https://github.com/PeixinC)

@@ -9,7 +9,6 @@ from message_filters import ApproximateTimeSynchronizer, Subscriber
 # from std_msgs.msg import Float32MultiArray
 import tf2_ros
 
-from pynput.mouse import Listener
 
 import sys
 from select import select

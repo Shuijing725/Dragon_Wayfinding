@@ -16,10 +16,10 @@ import cv2
 from semantic_map.set_goal_pose_clip import SelectGoalClip
 
 # image captioning
-from image_caption.ros_inference import ImageCaptioner
+from image_caption.image_caption_unit_test_ros import ImageCaptioner
 
 # vqa
-from VQA.vqa_inference import VQA
+from VQA.vqa_unit_test_ros import VQA
 
 import tensorflow as tf
 import argparse
@@ -466,8 +466,8 @@ if __name__ == "__main__":
     # if you want to use pretrained CLIP model without finetuning, set this argument to None
     parser.add_argument('--clip_model_path', type=str, default='pretrained_models/clip.pt')
     # topic name of realsense D435 camera: /camera/color/image_raw/compressed
-    # parser.add_argument('--image_topic_name', type=str, default='/camera/color/image_raw/compressed')
     parser.add_argument('--image_topic_name', type=str, default='/camera/color/image_raw/compressed')
+
     # folder that stores all landmark images and their corresponding poses on map
     parser.add_argument('--landmark_folder', type=str, default='semantic_map/landmark_library')
     # path of pretrained VQA model
